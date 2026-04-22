@@ -1,308 +1,351 @@
 <!DOCTYPE html>
-
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Gallery | Joe Best Aluminum</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Project Gallery | Joe Best Aluminum - Our Work</title>
+    
+    <link rel="icon" type="image/png" href="IMG_1040.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <script id="tailwind-config">
         tailwind.config = {
-          darkMode: "class",
           theme: {
             extend: {
-              "colors": {
-                      "on-surface-variant": "#43474e",
-                      "surface-container-high": "#e8e8ea",
-                      "on-tertiary-fixed-variant": "#3f484f",
-                      "tertiary-container": "#222b31",
-                      "primary-container": "#0f2a4a",
-                      "inverse-surface": "#2f3133",
-                      "surface-container": "#eeeef0",
-                      "surface": "#f9f9fc",
-                      "on-secondary-fixed": "#380d00",
-                      "tertiary-fixed": "#dbe4ec",
-                      "outline-variant": "#c4c6cf",
-                      "on-primary-fixed-variant": "#304869",
-                      "on-tertiary-fixed": "#141d23",
-                      "on-surface": "#1a1c1e",
-                      "secondary-container": "#ff5e13",
-                      "on-error-container": "#93000a",
-                      "on-primary-container": "#7a92b7",
-                      "on-secondary-fixed-variant": "#812900",
-                      "tertiary": "#0e161d",
-                      "on-error": "#ffffff",
-                      "secondary": "#a93800",
-                      "inverse-primary": "#b0c8f0",
-                      "on-secondary": "#ffffff",
-                      "on-tertiary": "#ffffff",
-                      "surface-variant": "#e2e2e5",
-                      "on-primary": "#ffffff",
-                      "surface-container-low": "#f3f3f6",
-                      "surface-dim": "#dadadc",
-                      "secondary-fixed-dim": "#ffb59b",
-                      "surface-tint": "#485f82",
-                      "primary-fixed-dim": "#b0c8f0",
-                      "tertiary-fixed-dim": "#bfc8d0",
-                      "surface-bright": "#f9f9fc",
-                      "on-tertiary-container": "#89929a",
-                      "background": "#f9f9fc",
-                      "surface-container-lowest": "#ffffff",
-                      "secondary-fixed": "#ffdbcf",
-                      "error-container": "#ffdad6",
-                      "primary-fixed": "#d4e3ff",
-                      "on-secondary-container": "#541800",
-                      "inverse-on-surface": "#f0f0f3",
-                      "error": "#ba1a1a",
-                      "on-background": "#1a1c1e",
-                      "surface-container-highest": "#e2e2e5",
-                      "on-primary-fixed": "#001c3a",
-                      "outline": "#74777f",
-                      "primary": "#00152f"
-              },
-              "borderRadius": {
-                      "DEFAULT": "0.25rem",
-                      "lg": "0.5rem",
-                      "xl": "0.75rem",
-                      "full": "9999px"
-              },
-              "spacing": {
-                      "stack-lg": "32px",
-                      "stack-md": "16px",
-                      "unit": "8px",
-                      "margin-page": "64px",
-                      "stack-sm": "8px",
-                      "gutter": "24px",
-                      "section-gap": "80px"
-              },
-              "fontFamily": {
-                      "headline-lg": ["Inter"],
-                      "body-md": ["Inter"],
-                      "body-lg": ["Inter"],
-                      "technical-data": ["Space Grotesk"],
-                      "headline-md": ["Inter"],
-                      "headline-xl": ["Inter"],
-                      "label-caps": ["Space Grotesk"]
-              },
-              "fontSize": {
-                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                      "technical-data": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
-                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                      "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}]
+              colors: {
+                "primary": "#00152f",
+                "secondary": "#ff5e13",
               }
-            },
-          },
+            }
+          }
         }
     </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            vertical-align: middle;
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        html { scroll-behavior: smooth; }
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
         }
-        .blueprint-bg {
-            background-image: linear-gradient(#d1d5db 1px, transparent 1px), linear-gradient(90deg, #d1d5db 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
+        .modal-overlay.active { display: flex; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
     </style>
 </head>
-<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
-<!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-200 ease-in-out">
-<div class="flex justify-between items-center px-8 h-20 max-w-7xl mx-auto">
-<div class="text-xl font-black tracking-tighter text-blue-900 uppercase">
-                Joe Best Aluminum
+<body class="bg-white text-slate-900 font-sans overflow-x-hidden">
+
+<!-- NAVIGATION -->
+<header class="fixed top-0 w-full z-[60] bg-white border-b border-slate-200 h-20">
+    <div class="flex justify-between items-center px-6 h-full max-w-7xl mx-auto">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full overflow-hidden border border-slate-200 flex-shrink-0">
+                <img src="IMG_1040.png" alt="Joe Best Logo" class="w-full h-full object-cover">
             </div>
-<div class="hidden md:flex items-center space-x-gutter">
-<a class="text-slate-600 hover:text-blue-900 transition-colors font-sans tracking-tight font-medium text-sm" href="#">Home</a>
-<a class="text-slate-600 hover:text-blue-900 transition-colors font-sans tracking-tight font-medium text-sm" href="#">Services</a>
-<a class="text-slate-600 hover:text-blue-900 transition-colors font-sans tracking-tight font-medium text-sm" href="#">About Us</a>
-<a class="text-blue-700 border-b-2 border-orange-500 pb-1 font-sans tracking-tight font-medium text-sm" href="#">Gallery</a>
-<a class="text-slate-600 hover:text-blue-900 transition-colors font-sans tracking-tight font-medium text-sm" href="#">Contact</a>
-</div>
-<button class="bg-primary text-on-primary px-6 py-2 rounded-none font-technical-data text-technical-data hover:opacity-90 transition-opacity uppercase tracking-widest">
-                Get a Quote
+            <div class="text-lg md:text-xl font-black tracking-tighter text-primary uppercase">Joe Best Aluminum</div>
+        </div>
+
+        <nav class="hidden md:flex items-center space-x-10 font-bold text-xs uppercase tracking-widest">
+            <a class="text-slate-600 hover:text-secondary transition-colors" href="index.html">Home</a>
+            <a class="text-slate-600 hover:text-secondary transition-colors" href="Service.html">Service</a>
+            <a class="text-secondary border-b-2 border-secondary" href="Galary.html">Gallery</a>
+        </nav>
+
+        <div class="flex items-center gap-4">
+            <button onclick="toggleQuoteModal()" class="hidden md:block bg-primary text-white px-6 py-2.5 font-bold text-xs uppercase hover:bg-secondary transition-all">Get a Quote</button>
+            <button onclick="toggleMobileMenu()" class="md:hidden text-primary p-2">
+                <span class="material-symbols-outlined text-4xl" id="menuIcon">menu</span>
             </button>
-</div>
-</nav>
-<main class="mt-20">
-<!-- Hero / Intro Section -->
-<section class="relative py-section-gap bg-surface-container-lowest border-b border-outline-variant overflow-hidden">
-<div class="absolute inset-0 blueprint-bg opacity-10 pointer-events-none"></div>
-<div class="max-w-7xl mx-auto px-8 relative z-10">
-<div class="max-w-3xl">
-<span class="text-secondary font-label-caps text-label-caps uppercase mb-4 block">Portfolio</span>
-<h1 class="font-headline-xl text-headline-xl text-primary mb-stack-md">
-                        Our Work Speaks for Itself
-                    </h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-                        Take a look at some of our completed projects. We take pride in delivering neat, durable, and visually appealing aluminum and glass work.
-                    </p>
-</div>
-</div>
-</section>
-<!-- Project Filter Bar (Internal Design Detail) -->
-<section class="sticky top-20 z-40 bg-white/90 backdrop-blur-sm border-b border-slate-200">
-<div class="max-w-7xl mx-auto px-8 py-4 flex flex-wrap gap-4 items-center">
-<span class="font-label-caps text-label-caps text-outline uppercase mr-2">Filter by Category:</span>
-<button class="px-4 py-1 border-2 border-primary bg-primary text-white font-technical-data text-technical-data uppercase">All Projects</button>
-<button class="px-4 py-1 border-2 border-outline hover:border-secondary transition-colors font-technical-data text-technical-data uppercase">Windows</button>
-<button class="px-4 py-1 border-2 border-outline hover:border-secondary transition-colors font-technical-data text-technical-data uppercase">Doors</button>
-<button class="px-4 py-1 border-2 border-outline hover:border-secondary transition-colors font-technical-data text-technical-data uppercase">Frameless Glass</button>
-<button class="px-4 py-1 border-2 border-outline hover:border-secondary transition-colors font-technical-data text-technical-data uppercase">Roofing</button>
-</div>
-</section>
-<!-- Gallery Grid -->
-<section class="max-w-7xl mx-auto px-8 py-section-gap">
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
-<!-- Project 1: Large Feature -->
-<div class="group relative overflow-hidden bg-surface-container-high lg:col-span-2 aspect-video border border-outline-variant">
-<img alt="Frameless Glass Installation" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Modern architectural interior with massive floor-to-ceiling frameless glass panels overlooking a lush garden, sharp clean lines, daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0S6O1QRSaGMkVnd5o1yaKGEQY2LClaMd7IIiES2yoDIESZxz588CHIKMSEVXLOwrVpsFhdh4OA4DSqW-Q175crpDqReVLnyr-glj-omnB5dNrpW0fOqd07tGt85qExhPv7ZxbgcDgNiro6r4XG0pnmNFCcoxYtKOIPWp4Rey8XkgtdnXF7CZkulGg-5SCEVPsxqxn3FnV4y99kgwL4SoqPZ9U-GCiYeE-5QfrT887nl26mhTPVRi0Pnb7FFsQLEgJ80kTXCz4vbLt"/>
-<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-<span class="font-label-caps text-label-caps text-secondary-fixed bg-secondary-container/80 px-2 py-1 w-fit mb-2">FRAMELESS GLASS</span>
-<h3 class="text-white font-headline-md text-headline-md">Corporate Headquarters Atrium</h3>
-<p class="text-white/80 font-technical-data text-technical-data mt-1">12mm Toughened Safety Glass</p>
-</div>
-</div>
-<!-- Project 2 -->
-<div class="group relative overflow-hidden bg-surface-container-high aspect-square border border-outline-variant">
-<img alt="Aluminum Windows" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Close-up of premium black aluminum window frames installed in a contemporary white villa, sharp architectural focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeX_ML3aGDXhV8PGJAefKf31JhyVzoBkcwrZvGkQMFxk6fnt2XInX1j1jRFzgtWwZc63Ty_hmosjGqTLLObcuq9lNQWvpcQd1-KyPLScgB2dqYrbaFWVFOt4qrI1-YhYa8sUq1r2OoJfW40tPc-sr7d8Dtl_dBXhF3z-TApUExiZXRaWOmYwraacp4iZJzXMxKRdGK4WVeJb-8kniA1cuPtIhgjOwYzbng3WAGlheVCllPb8aI0iHXYndcRGKHHOjNPuaG_CMLWsdH"/>
-<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-<span class="font-label-caps text-label-caps text-secondary-fixed bg-secondary-container/80 px-2 py-1 w-fit mb-2">WINDOWS</span>
-<h3 class="text-white font-headline-md text-headline-md">Villa Thermal Windows</h3>
-</div>
-</div>
-<!-- Project 3 -->
-<div class="group relative overflow-hidden bg-surface-container-high aspect-square border border-outline-variant">
-<img alt="Glass Roofing" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Interior view looking up at a complex structural aluminum and glass skylight with geometric patterns against a blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIfZnfA7qsIWeUp_ZwGW5OWeXyJuL8pvSCIwchSMEuqs5EuJUO9vydAc9JcvXcr5roK_BpTIFa15lhPn7kVVWbzHHeKjEV5kyLmBrUZ_UzOLydBZJmkZFN2guAX0zik0eBkoY417ufD0E-OoTMXCo6yg3yaiqS_3U17nI0Umt--o_rNZPtFKt6ZFMYlMuZjjLmDgWk5fo8iGveCUVZTD3BmZGRwZ2VNLsOM4NEAtIHKM5f1QH6M0Uf8TnPNBhFEHS9ZfMh6mHP7bJp"/>
-<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-<span class="font-label-caps text-label-caps text-secondary-fixed bg-secondary-container/80 px-2 py-1 w-fit mb-2">ROOFING</span>
-<h3 class="text-white font-headline-md text-headline-md">Modern Glass Skylight</h3>
-</div>
-</div>
-<!-- Project 4: Vertical Feature -->
-<div class="group relative overflow-hidden bg-surface-container-high md:row-span-2 aspect-[3/4] border border-outline-variant">
-<img alt="Commercial Glass Facade" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Towering skyscraper glass curtain wall reflecting the city sky, dramatic vertical perspective of aluminum mullions" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2_2aJ9aWAoDZL3j5AVTWyB6dwYXQ7dKlYglskSkVkenPsq_CR482tkNy46P3vrxIF4D-3CB_sALCCWfjAFedBcVnIBY_4SUNKrLzYnM1plsenW2HzWA1_XPezbh8cthUq15o3bAS01VW5IV5xE_IvfN6_jNjWQycfEPQ-nwTAngVvqpx7Ac552OV6eLd2COnPMc0FtAGrx_FzmlaSGnp63iYkgyK43Ml8WhSmljT2XPODwHs62Xwl-h79P97D1l5DJf0JMdM_E-WH"/>
-<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-<span class="font-label-caps text-label-caps text-secondary-fixed bg-secondary-container/80 px-2 py-1 w-fit mb-2">FACADE</span>
-<h3 class="text-white font-headline-md text-headline-md">Lagos Tech Hub Facade</h3>
-</div>
-</div>
-<!-- Project 5 -->
-<div class="group relative overflow-hidden bg-surface-container-high aspect-square border border-outline-variant">
-<img alt="Sliding Glass Doors" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Wide-span aluminum sliding glass doors opening onto a patio, evening lighting with warm interior glow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7UzM3OrG04j4JlwpBXtSpK5cO9e3w8P7pbZ9ZktS8ioDAIveVCzVV2mRHI3XhZZG3oNOGBmBJ7l0c2XKwr-ArhcFzKw1rfyuhLMNVEDWkb-OAGBgy9LJ_T2PvJWs0DGoEbFd56XIPLF3BchHHQckE6jnXwsRs6aDpdR6BCLOZwqZIGJMTHqcWujl1SLsMVDjPhDf5s5nrkDxJ_lYcOACpXom4bQgxyLYxMmZF0eYFBIx4bi4I5sX4HiGcuXJgP6fgJA3HAbO9Lj7v"/>
-<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-<span class="font-label-caps text-label-caps text-secondary-fixed bg-secondary-container/80 px-2 py-1 w-fit mb-2">DOORS</span>
-<h3 class="text-white font-headline-md text-headline-md">Panoramic Patio Doors</h3>
-</div>
-</div>
-<!-- Project 6 -->
-<div class="group relative overflow-hidden bg-surface-container-high aspect-square border border-outline-variant">
-<img alt="Custom Railing" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Contemporary interior staircase with stainless steel and glass railings, minimalist design, high-end materials" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGAld6ufmQq99hUiJ-BcpdWe-y1E1dY9cI2YCgAvpMu4ljOyFnXrV5oFcs4eblCFHof9EDehW8mDDA44y1AACO5xc4J4tsBe6_QXCYa1OUHBbO1w9lilQCfpc47q-38eoz2tUIKjxXZwyT14evmBKFWklSJfPM0VlP60GOv_fWQ-VunCWwn87e_tcW7NBQxzsfmLifwwNSEHTaUoVu6PZCAl1_tE5FjeHzl5HiDSI6MTdeiUD2YY6ubZkg5-HImGmAPPCIRNlwJoEp"/>
-<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-<span class="font-label-caps text-label-caps text-secondary-fixed bg-secondary-container/80 px-2 py-1 w-fit mb-2">INTERIOR</span>
-<h3 class="text-white font-headline-md text-headline-md">Glass Stair Balustrade</h3>
-</div>
-</div>
-<!-- Project 7 -->
-<div class="group relative overflow-hidden bg-surface-container-high aspect-video border border-outline-variant lg:col-span-2">
-<img alt="Pool Enclosure" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Luxury infinity pool with frameless glass security fencing, crystal clear water, sleek aluminum fixtures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7ts4hIooJJXNREPAcjMfav6g2eLolIOLgwFvxm991exRTvQpIEcsDB3pQhaNMhvyhJNVsyX7FBXMJy8Mupve-6s-0nOnoWWyFTAtp-_RExuBE-4dfUP5zwe3aEUwtccxKAw6hX_fmDks1eUjaU5z2NEwgQch7NtpJoUKk32KnFTHFhtB4grEPTv4u_3OnscFuB9WP5kl4CUYnRShPm6UC3PJHl9Fud0Wb4CdE-4vyQBapa5AVBKSkZvxKMqME_4Ad8otKcCVrk90W"/>
-<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-<span class="font-label-caps text-label-caps text-secondary-fixed bg-secondary-container/80 px-2 py-1 w-fit mb-2">SPECIALTY</span>
-<h3 class="text-white font-headline-md text-headline-md">Frameless Pool Enclosure</h3>
-</div>
-</div>
-<!-- Project 8 -->
-<div class="group relative overflow-hidden bg-surface-container-high aspect-square border border-outline-variant">
-<img alt="Office Partitioning" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Modern office interior with frosted glass and aluminum partitions creating private workspaces while maintaining open feel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy1YlYpdb9mubqWAVj7l-qIwMCgA8xi4vn3ErOxZ6x9GPV-Rk1rfbh91j1EdF27NeJuiNu10t_Z37bIgZ-hG7xcNcPkkG8O052ELO41XWU8ABtIo-OvQyhdw8oLIvOKH9Kr6xTuJoda1mE7mwnuAaAq_vowaHesiyoI6RdAqzG2M42bG7kzo6iIowqkZNWcNl9-K7UDnNUa2_0rTj4wkkfnu6BBy1WoiJqSeEoZhhj9D4B9gzgvwJktA8PgMHlUsJ-qghVnVHX8nIo"/>
-<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-<span class="font-label-caps text-label-caps text-secondary-fixed bg-secondary-container/80 px-2 py-1 w-fit mb-2">PARTITIONS</span>
-<h3 class="text-white font-headline-md text-headline-md">Executive Office Suites</h3>
-</div>
-</div>
-<!-- Project 9 -->
-<div class="group relative overflow-hidden bg-surface-container-high aspect-square border border-outline-variant">
-<img alt="Industrial Window" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Industrial warehouse with large grid-style aluminum windows, high ceilings, natural light flooding the workspace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8CCRkQFen9AJkmdooq5UCrLA0oQNDpMnzXa3DCJQ-nmpOTYpvq0jJR6tcTLxtj4UbBx-ZveKCIFPlodhbJZ5OwMw3p-joky-dXcuqha-7cslh3gTtwqsvvYEUjjI0WhtzQW9H78j8LIsDXXoK8A42tFx5Fs0fqQ6VR840yTohdCvkwAd3cIApatTyMckQZBiiwAgY8kzQoeEsZZs0GU0zppge4HRFY2DlXwqyKElfSQnLo0_M3BgzWz_RQdDCYAcwcJPBvzAVfm67"/>
-<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-<span class="font-label-caps text-label-caps text-secondary-fixed bg-secondary-container/80 px-2 py-1 w-fit mb-2">INDUSTRIAL</span>
-<h3 class="text-white font-headline-md text-headline-md">Factory Grid Windows</h3>
-</div>
-</div>
-<!-- Project 10 -->
-<div class="group relative overflow-hidden bg-surface-container-high aspect-square border border-outline-variant">
-<img alt="Storefront" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Luxury retail storefront with large clear glass display windows and polished aluminum trim, high street location" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnvUcYl2w00m7PAeFKIAzS4tOenEN0WhcOTKly5VGTuiWkrbciyT7_vbj7ZmB21z2wvyAgEH7ROz3Bkr53buqrWUHI5LOfiN1nn64esAr2FMxgfcs6eRULSP8U2qzBHoLw5EfgDqpDK7eOUFH3mQv8korc7S8hYIwLIt8vFoEkeeDYPH85njHpC7kfD7hXoX2f6n1X_h4iGh0iQrAdLuGfK4MOPH2Jog8dri4S_XkahLprpUJyL8qzDd_AnpVqdK3OlAQIMrjmz2BZ"/>
-<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-<span class="font-label-caps text-label-caps text-secondary-fixed bg-secondary-container/80 px-2 py-1 w-fit mb-2">COMMERCIAL</span>
-<h3 class="text-white font-headline-md text-headline-md">Retail Glass Storefront</h3>
-</div>
-</div>
-</div>
-</section>
-<!-- CTA Section -->
-<section class="bg-primary py-section-gap">
-<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-stack-lg">
-<div class="text-center md:text-left">
-<h2 class="font-headline-lg text-headline-lg text-white mb-2">Have a project in mind?</h2>
-<p class="text-on-primary-container font-body-lg text-body-lg">Contact us today for a professional consultation and quote.</p>
-</div>
-<div class="flex gap-4">
-<button class="bg-white text-primary px-8 py-3 font-technical-data text-technical-data uppercase tracking-widest hover:bg-surface-container transition-colors border-2 border-white">
-                        Talk to an expert
-                    </button>
-<button class="bg-transparent text-secondary-fixed-dim border-2 border-secondary px-8 py-3 font-technical-data text-technical-data uppercase tracking-widest hover:bg-secondary/10 transition-colors">
-                        View Services
-                    </button>
-</div>
-</div>
-</section>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-white z-[100] flex-col p-8 transition-all duration-300">
+        <div class="flex justify-between items-center mb-12">
+            <div class="flex items-center gap-2">
+                <img src="IMG_1040.png" class="w-10 h-10 rounded-full" alt="Logo">
+                <div class="text-lg font-black text-primary uppercase">Joe Best</div>
+            </div>
+            <button onclick="toggleMobileMenu()" class="text-primary"><span class="material-symbols-outlined text-4xl">close</span></button>
+        </div>
+        <nav class="flex flex-col space-y-8 text-3xl font-bold">
+            <a href="index.html" class="text-primary" onclick="toggleMobileMenu()">Home</a>
+            <a href="Service.html" class="text-primary" onclick="toggleMobileMenu()">Service</a>
+            <a href="Galary.html" class="text-secondary" onclick="toggleMobileMenu()">Gallery</a>
+        </nav>
+        <div class="mt-auto">
+            <button onclick="toggleQuoteModal(); toggleMobileMenu()" class="bg-primary text-white w-full py-5 font-bold text-lg uppercase tracking-widest">GET A QUOTE</button>
+        </div>
+    </div>
+</header>
+
+<main class="pt-20">
+    <!-- HERO SECTION -->
+    <section class="bg-slate-50 py-16 md:py-24 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="max-w-3xl reveal">
+                <span class="text-secondary font-bold tracking-widest uppercase text-xs mb-4 block">Proven Excellence</span>
+                <h1 class="text-4xl md:text-6xl font-bold text-primary mb-6 uppercase">Our Project Portfolio</h1>
+                <p class="text-slate-600 text-lg leading-relaxed">Browse through our gallery to see our precision-engineered aluminum and glass installations across Nigeria. We deliver quality you can see.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY GRID (15 IMAGES) -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 1 -->
+                <div class="reveal group h-80 overflow-hidden relative shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1503708928676-1cb796a0891e?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+                        <h4 class="text-white font-bold uppercase">Casement Windows</h4>
+                    </div>
+                </div>
+                <!-- 2 -->
+                <div class="reveal group h-80 overflow-hidden relative shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1481277542470-605612bd2d61?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+                        <h4 class="text-white font-bold uppercase">Sliding Doors</h4>
+                    </div>
+                </div>
+                <!-- 3 -->
+                <div class="reveal group h-80 overflow-hidden relative shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+                        <h4 class="text-white font-bold uppercase">Aluminum Roofing</h4>
+                    </div>
+                </div>
+                <!-- 4 -->
+                <div class="reveal group h-80 overflow-hidden relative shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+                        <h4 class="text-white font-bold uppercase">Office Partitioning</h4>
+                    </div>
+                </div>
+                <!-- 5 -->
+                <div class="reveal group h-80 overflow-hidden relative shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1600585154526-990dcea4db0d?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+                        <h4 class="text-white font-bold uppercase">Frameless Shower</h4>
+                    </div>
+                </div>
+                <!-- 6 -->
+                <div class="reveal group h-80 overflow-hidden relative shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+                        <h4 class="text-white font-bold uppercase">Glass Stair Railings</h4>
+                    </div>
+                </div>
+                <!-- 7 -->
+                <div class="reveal group h-80 overflow-hidden relative shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+                        <h4 class="text-white font-bold uppercase">Storefront Glass</h4>
+                    </div>
+                </div>
+                <!-- 8 -->
+                <div class="reveal group h-80 overflow-hidden relative shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+                        <h4 class="text-white font-bold uppercase">Industrial Windows</h4>
+                    </div>
+                </div>
+                <!-- 9 -->
+                <div class="reveal group h-80 overflow-hidden relative shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1464938050520-ef2270bb8ce8?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+                        <h4 class="text-white font-bold uppercase">Long-span Roofing</h4>
+                    </div>
+                </div>
+                <!-- 10 -->
+                <div class="reveal group h-80 overflow-hidden relative shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+                        <h4 class="text-white font-bold uppercase">Cladding Work</h4>
+                    </div>
+                </div>
+                <!-- 11 -->
+                <div class="reveal group h-80 overflow-hidden relative shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+                        <h4 class="text-white font-bold uppercase">Modern Partitioning</h4>
+                    </div>
+                </div>
+                <!-- 12 -->
+                <div class="reveal group h-80 overflow-hidden relative shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+                        <h4 class="text-white font-bold uppercase">Bathroom Enclosures</h4>
+                    </div>
+                </div>
+                <!-- 13 -->
+                <div class="reveal group h-80 overflow-hidden relative shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+                        <h4 class="text-white font-bold uppercase">Balcony Railings</h4>
+                    </div>
+                </div>
+                <!-- 14 -->
+                <div class="reveal group h-80 overflow-hidden relative shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1430285561322-7808604715df?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+                        <h4 class="text-white font-bold uppercase">Casement Doors</h4>
+                    </div>
+                </div>
+                <!-- 15 -->
+                <div class="reveal group h-80 overflow-hidden relative shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+                        <h4 class="text-white font-bold uppercase">Security Glass</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIRECT WHATSAPP CONTACT FORM -->
+    <section class="py-24 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-8 reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold text-primary uppercase">Start Your Project</h2>
+                <p class="text-slate-600 mt-4">Fill the form below to send a project request directly to our WhatsApp.</p>
+            </div>
+            <form id="galleryContactForm" class="bg-white p-8 md:p-12 shadow-2xl border border-slate-200 space-y-6">
+                <div>
+                    <label class="block font-bold text-sm uppercase mb-2">Full Name</label>
+                    <input type="text" id="custName" required placeholder="Enter your name" class="w-full p-4 border border-slate-300 outline-none focus:border-secondary">
+                </div>
+                <div>
+                    <label class="block font-bold text-sm uppercase mb-2">Service Required</label>
+                    <select id="custService" class="w-full p-4 border border-slate-300 outline-none focus:border-secondary">
+                        <option>Aluminum Windows</option>
+                        <option>Aluminum Doors</option>
+                        <option>Aluminum Roofing</option>
+                        <option>Frameless Glass Toilet</option>
+                        <option>Frameless Railings</option>
+                        <option>Office Partitioning</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block font-bold text-sm uppercase mb-2">Project Message</label>
+                    <textarea id="custMsg" rows="5" required placeholder="Tell us about your project" class="w-full p-4 border border-slate-300 outline-none focus:border-secondary"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-secondary text-white py-5 font-bold uppercase tracking-widest hover:bg-primary transition-all">Send Project Request to WhatsApp</button>
+            </form>
+        </div>
+    </section>
 </main>
-<!-- Footer -->
-<footer class="bg-slate-50 border-t border-slate-200">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 py-12 max-w-7xl mx-auto">
-<div class="col-span-1 md:col-span-2">
-<div class="font-bold text-lg text-blue-900 mb-4 uppercase">Joe Best Aluminum</div>
-<p class="text-slate-500 max-w-md mb-6 leading-relaxed">
-                    Nigeria's premier choice for structural aluminum and architectural glass solutions. Precision engineered, professionally installed.
-                </p>
-<div class="flex space-x-4">
-<a class="text-slate-400 hover:text-orange-500 transition-colors" href="#">
-<span class="material-symbols-outlined">public</span>
-</a>
-<a class="text-slate-400 hover:text-orange-500 transition-colors" href="#">
-<span class="material-symbols-outlined">mail</span>
-</a>
-<a class="text-slate-400 hover:text-orange-500 transition-colors" href="#">
-<span class="material-symbols-outlined">phone</span>
-</a>
-</div>
-</div>
-<div>
-<h4 class="font-label-caps text-label-caps text-primary mb-4 uppercase">Quick Links</h4>
-<ul class="space-y-2">
-<li><a class="text-slate-500 hover:text-orange-500 transition-colors text-sm" href="#">Privacy Policy</a></li>
-<li><a class="text-slate-500 hover:text-orange-500 transition-colors text-sm" href="#">Terms of Service</a></li>
-<li><a class="text-slate-500 hover:text-orange-500 transition-colors text-sm" href="#">FAQ</a></li>
-<li><a class="text-slate-500 hover:text-orange-500 transition-colors text-sm" href="#">Career</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-label-caps text-label-caps text-primary mb-4 uppercase">Office</h4>
-<p class="text-slate-500 text-sm leading-relaxed">
-                    43 Shrita Street,<br/>
-                    Off Lagos Road,<br/>
-                    Lagos, Nigeria.
-                </p>
-</div>
-</div>
-<div class="border-t border-slate-200 py-6 px-8">
-<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center opacity-80 hover:opacity-100 transition-all">
-<p class="text-slate-500 font-sans text-sm">© 2024 Joe Best Aluminum. All Rights Reserved.</p>
-<p class="text-slate-500 font-sans text-sm mt-2 md:mt-0 italic">Excellence in Metalwork &amp; Glass.</p>
-</div>
-</div>
+
+<!-- FOOTER -->
+<footer class="bg-slate-900 text-white pt-20 pb-10">
+    <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 text-center md:text-left">
+        <div class="md:col-span-2">
+            <h4 class="text-2xl font-black text-secondary mb-6 uppercase">Joe Best Aluminum</h4>
+            <p class="text-slate-400 mb-8 max-w-sm">Premium architectural aluminum and glass solutions. Engineering excellence in Lagos since 2012.</p>
+        </div>
+        <div>
+            <h4 class="text-lg font-bold mb-6 uppercase tracking-widest">Company</h4>
+            <ul class="space-y-4 text-slate-400 text-sm">
+                <li><a href="index.html" class="hover:text-secondary">Home</a></li>
+                <li><button onclick="togglePolicyModal()" class="hover:text-secondary">Business Policies</button></li>
+                <li><a href="Service.html" class="hover:text-secondary">Services</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="text-lg font-bold mb-6 uppercase tracking-widest">Contact</h4>
+            <div class="text-slate-400 space-y-4 text-sm font-medium">
+                <p>📍 43 Shrita Street, Aluminum Village, Dopemu Agege, Lagos.</p>
+                <p>📞 08166407917, 07015506421</p>
+                <p>✉️ akinbobola.joseph25@gmail.com</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="border-t border-white/10 pt-10 text-center text-slate-500 text-xs px-8 uppercase tracking-widest">
+        <p class="mb-8">© 2025 JOE BEST ALUMINUM. 43 SHRITA STREET, LAGOS, NIGERIA.</p>
+        <a href="https://wa.me/2349032473005" target="_blank" class="inline-block bg-secondary/10 hover:bg-secondary text-secondary hover:text-white border border-secondary px-6 py-2.5 rounded-full font-bold transition-all">
+            Get Your Website Today
+        </a>
+    </div>
 </footer>
-</body></html>
+
+<!-- MODALS -->
+<div id="quoteModal" class="modal-overlay">
+    <div class="bg-white p-10 w-full max-w-md mx-4 rounded-lg relative">
+        <button onclick="toggleQuoteModal()" class="absolute top-4 right-4 text-slate-400"><span class="material-symbols-outlined">close</span></button>
+        <h3 class="text-2xl font-black mb-6 text-primary uppercase">Quick Quote</h3>
+        <form id="quoteForm" class="space-y-4 text-sm">
+            <input type="text" id="qName" placeholder="Full Name" required class="w-full border p-4 outline-none">
+            <select id="qService" class="w-full border p-4 outline-none">
+                <option>Aluminum Windows/Doors</option>
+                <option>Aluminum Roofing</option>
+                <option>Frameless Glass</option>
+            </select>
+            <button type="submit" class="w-full bg-secondary text-white py-4 font-bold uppercase">Submit via WhatsApp</button>
+        </form>
+    </div>
+</div>
+
+<div id="policyModal" class="modal-overlay">
+    <div class="bg-white p-10 w-full max-w-3xl mx-4 rounded-lg relative max-h-[85vh] overflow-y-auto">
+        <button onclick="togglePolicyModal()" class="absolute top-4 right-4 text-slate-400"><span class="material-symbols-outlined">close</span></button>
+        <h3 class="text-3xl font-black mb-8 text-primary uppercase border-b-2 border-secondary pb-4">Business Policies</h3>
+        <div class="space-y-6 text-slate-700 leading-relaxed text-sm">
+            <div><h4 class="font-bold text-secondary uppercase mb-2">1. Payment Terms</h4><p>Mobilization requires a 70% deposit. The final 30% is payable immediately upon project completion.</p></div>
+            <div><h4 class="font-bold text-secondary uppercase mb-2">2. Warranty</h4><p>We provide a 12-month structural warranty on all installations covering leakages and moving hardware failure.</p></div>
+            <div><h4 class="font-bold text-secondary uppercase mb-2">3. Fabrication</h4><p>Once materials are cut to custom size, deposits become non-refundable.</p></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleMobileMenu() {
+        const m = document.getElementById('mobileMenu');
+        m.classList.toggle('hidden');
+        m.classList.toggle('flex');
+    }
+    function toggleQuoteModal() { document.getElementById('quoteModal').classList.toggle('active'); }
+    function togglePolicyModal() { document.getElementById('policyModal').classList.toggle('active'); }
+
+    function reveal() {
+        var r = document.querySelectorAll(".reveal");
+        for (var i = 0; i < r.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = r[i].getBoundingClientRect().top;
+            if (elementTop < windowHeight - 100) { r[i].classList.add("active"); }
+        }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal();
+
+    const waNum = "2347015506421";
+
+    // Main Contact Form
+    document.getElementById('galleryContactForm').onsubmit = function(e) {
+        e.preventDefault();
+        const n = document.getElementById('custName').value;
+        const s = document.getElementById('custService').value;
+        const m = document.getElementById('custMsg').value;
+        const msg = `Hello Joe Best Aluminum, my name is ${n}. I am interested in ${s}. Details: ${m}`;
+        window.open(`https://wa.me/${waNum}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    // Modal Quote Form
+    document.getElementById('quoteForm').onsubmit = function(e) {
+        e.preventDefault();
+        const n = document.getElementById('qName').value;
+        const s = document.getElementById('qService').value;
+        const msg = `Hello Joe Best Aluminum, I need a quick quote for ${s}. Name: ${n}.`;
+        window.open(`https://wa.me/${waNum}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+</script>
+</body>
+</html>
