@@ -1,399 +1,386 @@
 <!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Joe Best Aluminum | Quality Aluminum Solutions</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        
+        /* Smooth scrolling for the whole page */
+        html { scroll-behavior: smooth; }
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Joe Best Aluminum | Quality Aluminum Solutions</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+        /* Review Marquee Animation */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 40s linear infinite;
+        }
+        .animate-marquee:hover { animation-play-state: paused; }
+
+        /* Custom Animations */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Floating Button Bounce */
+        @keyframes bounce-slow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .floating-wa { animation: bounce-slow 3s infinite ease-in-out; }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 100;
+            backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-overlay.active { display: flex; }
+    </style>
+
+    <script id="tailwind-config">
         tailwind.config = {
-            darkMode: "class",
             theme: {
                 extend: {
-                    "colors": {
-                        "on-surface-variant": "#43474e",
-                        "surface-container-high": "#e8e8ea",
-                        "on-tertiary-fixed-variant": "#3f484f",
-                        "tertiary-container": "#222b31",
-                        "primary-container": "#0f2a4a",
-                        "inverse-surface": "#2f3133",
-                        "surface-container": "#eeeef0",
-                        "surface": "#f9f9fc",
-                        "on-secondary-fixed": "#380d00",
-                        "tertiary-fixed": "#dbe4ec",
-                        "outline-variant": "#c4c6cf",
-                        "on-primary-fixed-variant": "#304869",
-                        "on-tertiary-fixed": "#141d23",
-                        "on-surface": "#1a1c1e",
-                        "secondary-container": "#ff5e13",
-                        "on-error-container": "#93000a",
-                        "on-primary-container": "#7a92b7",
-                        "on-secondary-fixed-variant": "#812900",
-                        "tertiary": "#0e161d",
-                        "on-error": "#ffffff",
-                        "secondary": "#a93800",
-                        "inverse-primary": "#b0c8f0",
-                        "on-secondary": "#ffffff",
-                        "on-tertiary": "#ffffff",
-                        "surface-variant": "#e2e2e5",
-                        "on-primary": "#ffffff",
-                        "surface-container-low": "#f3f3f6",
-                        "surface-dim": "#dadadc",
-                        "secondary-fixed-dim": "#ffb59b",
-                        "surface-tint": "#485f82",
-                        "primary-fixed-dim": "#b0c8f0",
-                        "tertiary-fixed-dim": "#bfc8d0",
-                        "surface-bright": "#f9f9fc",
-                        "on-tertiary-container": "#89929a",
-                        "background": "#f9f9fc",
-                        "surface-container-lowest": "#ffffff",
-                        "secondary-fixed": "#ffdbcf",
-                        "error-container": "#ffdad6",
-                        "primary-fixed": "#d4e3ff",
-                        "on-secondary-container": "#541800",
-                        "inverse-on-surface": "#f0f0f3",
-                        "error": "#ba1a1a",
-                        "on-background": "#1a1c1e",
-                        "surface-container-highest": "#e2e2e5",
-                        "on-primary-fixed": "#001c3a",
-                        "outline": "#74777f",
-                        "primary": "#00152f"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "stack-lg": "32px",
-                        "stack-md": "16px",
-                        "unit": "8px",
-                        "margin-page": "64px",
-                        "stack-sm": "8px",
-                        "gutter": "24px",
-                        "section-gap": "80px"
-                    },
-                    "fontFamily": {
-                        "headline-lg": ["Inter"],
-                        "body-md": ["Inter"],
-                        "body-lg": ["Inter"],
-                        "technical-data": ["Space Grotesk"],
-                        "headline-md": ["Inter"],
-                        "headline-xl": ["Inter"],
-                        "label-caps": ["Space Grotesk"]
-                    },
-                    "fontSize": {
-                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                        "technical-data": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
-                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}]
+                    colors: {
+                        "primary": "#00152f",
+                        "secondary": "#ff5e13",
                     }
-                },
-            },
+                }
+            }
         }
     </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        body { background-color: #f9f9fc; }
-    </style>
 </head>
-<body class="font-body-md text-on-background">
-<!-- TopNavBar -->
-<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm transition-all duration-200 ease-in-out h-20">
-<div class="flex justify-between items-center px-8 h-full max-w-7xl mx-auto">
-<div class="text-xl font-black tracking-tighter text-blue-900 dark:text-white uppercase font-headline-lg">
-                Joe Best Aluminum
-            </div>
-<nav class="hidden md:flex items-center space-x-8 font-sans tracking-tight font-medium text-sm">
-<a class="text-blue-700 dark:text-blue-400 border-b-2 border-orange-500 pb-1" href="#">Home</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors" href="#">Services</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors" href="#">About Us</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors" href="#">Gallery</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors" href="#">Contact</a>
-</nav>
-<button class="bg-primary text-on-primary px-6 py-2 rounded-none font-label-caps text-label-caps uppercase transition-all hover:bg-secondary active:scale-95">
+<body class="font-sans text-slate-900 bg-slate-50 overflow-x-hidden">
+
+<!-- Navigation -->
+<header class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 h-20">
+    <div class="flex justify-between items-center px-6 md:px-8 h-full max-w-7xl mx-auto">
+        <div class="text-lg md:text-xl font-black tracking-tighter text-primary uppercase">
+            Joe Best Aluminum
+        </div>
+
+        <!-- Desktop Menu -->
+        <nav class="hidden md:flex items-center space-x-10 font-medium text-sm">
+            <a class="text-secondary border-b-2 border-secondary pb-1" href="index.html">Home</a>
+            <a class="text-slate-600 hover:text-secondary transition-colors" href="service.html">Service</a>
+            <a class="text-slate-600 hover:text-secondary transition-colors" href="galary.html">Gallery</a>
+        </nav>
+
+        <div class="flex items-center gap-4">
+            <button onclick="toggleQuoteModal()" class="hidden md:block bg-primary text-white px-6 py-2.5 font-bold text-xs uppercase tracking-widest hover:bg-secondary transition-all">
                 Get a Quote
             </button>
-</div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-primary">
+                <span class="material-symbols-outlined text-3xl" id="menuIcon">menu</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="hidden fixed inset-0 top-20 bg-white z-40 p-8 flex-col space-y-6 text-xl font-bold border-t">
+        <a href="index.html" class="text-secondary" onclick="toggleMobileMenu()">Home</a>
+        <a href="service.html" class="text-primary" onclick="toggleMobileMenu()">Service</a>
+        <a href="galary.html" class="text-primary" onclick="toggleMobileMenu()">Gallery</a>
+        <button onclick="toggleQuoteModal(); toggleMobileMenu()" class="bg-primary text-white w-full py-4 mt-4">GET A QUOTE</button>
+    </div>
 </header>
+
 <main class="pt-20">
-<!-- Hero Section -->
-<section class="relative h-[921px] min-h-[600px] flex items-center overflow-hidden">
-<div class="absolute inset-0 z-0">
-<img class="w-full h-full object-cover" data-alt="modern architectural close-up of floor to ceiling glass windows with dark aluminum frames and sharp structural lines in daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIV1P7PRtJW5AiKrUcAvpzt-AkpXZrAFH3uajWR16KFNGiqpDE8KP94RZ207XDeP3ph3ZS1rZlLQ4qVW-LZb3l27bPT5m6jmq07fYWU9tkAW_2VCeH_JiXXFvLmD5Q-1eX_j-nU1C9lq91CPJh40TlYplG_KbWa0ons2KIYOa6D5NRyqZ5oGkjzViZQTWbxgKbfJ5bSNWvBUn8NZjU8DDxwCkVkeYkphu8hfhtxzuqNnOtJ4sDp9AUWFbkFgXDTTNY1V9uOJZcgqDi"/>
-<div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-transparent"></div>
-</div>
-<div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
-<div class="max-w-2xl">
-<span class="inline-block bg-secondary text-on-secondary px-3 py-1 font-label-caps text-label-caps mb-6">ESTABLISHED PRECISION</span>
-<h1 class="font-headline-xl text-headline-xl text-white mb-6">
-                        Quality Aluminum Solutions You Can Trust
-                    </h1>
-<p class="font-body-lg text-body-lg text-white/80 mb-10 leading-relaxed">
-                        At Joe Best Aluminum, we specialize in high-quality aluminum fabrication, glass installations, and modern finishing solutions for homes and businesses in Lagos.
-                    </p>
-<div class="flex flex-wrap gap-4">
-<button class="bg-secondary text-on-secondary px-8 py-4 font-label-caps text-label-caps hover:bg-secondary-container transition-colors">
-                            VIEW PROJECTS
-                        </button>
-<button class="border-2 border-white text-white px-8 py-4 font-label-caps text-label-caps hover:bg-white hover:text-primary transition-all">
-                            OUR SERVICES
-                        </button>
-</div>
-</div>
-</div>
-</section>
-<!-- Welcome Section / Expertise -->
-<section class="py-24 bg-surface">
-<div class="max-w-7xl mx-auto px-8">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-<div class="lg:col-span-7">
-<div class="flex items-center gap-4 mb-4">
-<div class="h-px w-12 bg-secondary"></div>
-<span class="font-label-caps text-label-caps text-secondary">ARCHITECTURAL EXCELLENCE</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-primary mb-8">Engineering Durability through Material Mastery</h2>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6">
-                            With over a decade of hands-on experience in the Nigerian construction landscape, Joe Best Aluminum has become synonymous with structural integrity. We don't just install windows; we engineer environmental barriers that withstand the elements while providing sleek, modern aesthetics.
-                        </p>
-<p class="font-body-md text-body-md text-on-surface-variant mb-10">
-                            Our team of certified technicians utilizes state-of-the-art aluminum extrusion profiles and high-tempered glass to ensure every project meets international safety and quality standards.
-                        </p>
-<div class="grid grid-cols-2 gap-8">
-<div class="border-l-4 border-secondary pl-6">
-<div class="text-3xl font-bold text-primary mb-1">500+</div>
-<div class="font-technical-data text-technical-data text-on-surface-variant uppercase">Projects Completed</div>
-</div>
-<div class="border-l-4 border-secondary pl-6">
-<div class="text-3xl font-bold text-primary mb-1">15+</div>
-<div class="font-technical-data text-technical-data text-on-surface-variant uppercase">Years Experience</div>
-</div>
-</div>
-</div>
-<div class="lg:col-span-5">
-<div class="relative">
-<img class="w-full aspect-[4/5] object-cover shadow-2xl" data-alt="industrial craftsman working with aluminum extrusion profiles in a clean professional workshop environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkvt6IH4jwOv0WjEs514n4sYDyLg4pD_pNteYSLoyTBCfZIp-tMulDkqBIItRGyypuLeTlpftXoAGnuDCRIQliF2ebkPbAC0BxEk7QrHkKi4MB1i4Gd6k7UIGBQVrzsPEsCiK808h1L7Xk8vr3UoMtZvjOtg7a_srqJZGpgwvXaCbYZVdRznMao059KfjWLW4EM-1hvXriNs00wLwCzFKDfW940clezhkDe-u5zrv3ARoQXJYvWgzBh8Nan7EWdbvDD_cyPU5IJZHF"/>
-<div class="absolute -bottom-6 -left-6 bg-primary p-8 text-white max-w-[200px]">
-<p class="font-technical-data text-technical-data leading-tight">ISO 9001:2015 CERTIFIED INSTALLATION PROCESS</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Our Services Preview -->
-<section class="py-24 bg-surface-container-low">
-<div class="max-w-7xl mx-auto px-8">
-<div class="flex justify-between items-end mb-16">
-<div class="max-w-xl">
-<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Specialized Technical Services</h2>
-<p class="font-body-md text-body-md text-on-surface-variant">Precision-engineered solutions tailored for residential and commercial architectural requirements.</p>
-</div>
-<a class="hidden md:flex items-center gap-2 font-label-caps text-label-caps text-secondary hover:gap-4 transition-all" href="#">
-                        VIEW FULL CATALOG <span class="material-symbols-outlined">arrow_forward</span>
-</a>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<!-- Service 1 -->
-<div class="bg-white p-8 border border-outline-variant hover:border-secondary transition-all group">
-<div class="w-12 h-12 bg-surface-container-highest flex items-center justify-center mb-6 text-primary group-hover:bg-secondary group-hover:text-white transition-colors">
-<span class="material-symbols-outlined" data-icon="window">window</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-primary mb-3">Aluminum Windows</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6">High-performance sliding, casement, and fixed windows with thermal-break technology.</p>
-<ul class="space-y-2 font-technical-data text-technical-data text-on-surface-variant">
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-secondary">check</span> Weatherproof Sealing</li>
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-secondary">check</span> Noise Reduction</li>
-</ul>
-</div>
-<!-- Service 2 -->
-<div class="bg-white p-8 border border-outline-variant hover:border-secondary transition-all group">
-<div class="w-12 h-12 bg-surface-container-highest flex items-center justify-center mb-6 text-primary group-hover:bg-secondary group-hover:text-white transition-colors">
-<span class="material-symbols-outlined" data-icon="door_front">door_front</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-primary mb-3">Doors &amp; Frameless Glass</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6">Elegant frameless glass doors and heavy-duty aluminum swing or sliding systems.</p>
-<ul class="space-y-2 font-technical-data text-technical-data text-on-surface-variant">
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-secondary">check</span> 12mm Tempered Glass</li>
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-secondary">check</span> Hydraulic Hinges</li>
-</ul>
-</div>
-<!-- Service 3 -->
-<div class="bg-white p-8 border border-outline-variant hover:border-secondary transition-all group">
-<div class="w-12 h-12 bg-surface-container-highest flex items-center justify-center mb-6 text-primary group-hover:bg-secondary group-hover:text-white transition-colors">
-<span class="material-symbols-outlined" data-icon="home_storage">home_storage</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-primary mb-3">Modern Roofing</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6">Long-span aluminum roofing sheets and stone-coated shingles for ultimate durability.</p>
-<ul class="space-y-2 font-technical-data text-technical-data text-on-surface-variant">
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-secondary">check</span> Anti-Corrosive Coating</li>
-<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-secondary">check</span> Leak-Proof Installation</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<!-- Why Choose Us -->
-<section class="py-24 overflow-hidden">
-<div class="max-w-7xl mx-auto px-8">
-<div class="flex flex-col lg:flex-row gap-16">
-<div class="lg:w-1/2">
-<h2 class="font-headline-lg text-headline-lg text-primary mb-12">The Joe Best Advantage</h2>
-<div class="space-y-10">
-<div class="flex gap-6">
-<div class="flex-shrink-0 w-12 h-12 rounded-full border border-secondary flex items-center justify-center text-secondary">
-<span class="material-symbols-outlined">verified</span>
-</div>
-<div>
-<h4 class="font-headline-md text-[20px] text-primary mb-2">Premium Raw Materials</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">We source only 6063-T5 architectural grade aluminum for structural rigidity and longevity.</p>
-</div>
-</div>
-<div class="flex gap-6">
-<div class="flex-shrink-0 w-12 h-12 rounded-full border border-secondary flex items-center justify-center text-secondary">
-<span class="material-symbols-outlined">architecture</span>
-</div>
-<div>
-<h4 class="font-headline-md text-[20px] text-primary mb-2">Custom Fabrication</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Every component is custom-measured and fabricated to the exact specifications of your blueprint.</p>
-</div>
-</div>
-<div class="flex gap-6">
-<div class="flex-shrink-0 w-12 h-12 rounded-full border border-secondary flex items-center justify-center text-secondary">
-<span class="material-symbols-outlined">build_circle</span>
-</div>
-<div>
-<h4 class="font-headline-md text-[20px] text-primary mb-2">Technical After-Sales</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">Our service doesn't end at installation. We offer 2-year maintenance warranties on all moving parts.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="lg:w-1/2 relative">
-<div class="aspect-square bg-surface-container rounded-none flex items-center justify-center overflow-hidden">
-<img class="w-full h-full object-cover grayscale-0 hover:grayscale transition-all duration-700" data-alt="ultra-modern residential home exterior with large expansive aluminum-framed glass walls reflecting a sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtfb74mOKDv3KZO0Kb_AlrLVH1YaC0F-CZ9yoSdTAn2sOgPzv0KEuB9qXj4SE9CgjL1Q5DAQzi0qxcZt46eZA2fQEJE7O_cNrXPYhNhA7GTlvGuw8iAJWVQuzKOkNvnIPlf2Gih8sdSUS5jOJQmuIA45UuzSb7yi4rufyDxFOiM8sqET2Dmk9MZoGKY7IYh_ZCqGYzJxtl9U6aYSLKa_2ItNo9x28KkYooGq_lKjvwA__nMRP0niq-9M-s_0PFMKduW7hxAaOPFNzX"/>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Testimonials -->
-<section class="py-24 bg-primary text-white">
-<div class="max-w-7xl mx-auto px-8">
-<div class="text-center mb-16">
-<span class="font-label-caps text-label-caps text-secondary mb-4 block">CLIENT FEEDBACK</span>
-<h2 class="font-headline-lg text-headline-lg">Trusted by Leading Architects</h2>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-<div class="bg-white/5 p-10 border border-white/10 backdrop-blur-sm">
-<div class="flex text-secondary mb-6">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<p class="font-body-lg text-body-lg italic mb-8">"The attention to detail in their frameless glass installation is unmatched in Lagos. Joe Best delivered ahead of schedule for our Lekki project."</p>
-<div>
-<p class="font-technical-data text-technical-data font-bold">Arc. Segun Adeyemi</p>
-<p class="font-technical-data text-technical-data text-white/60">Lead Architect, Studio-A Designs</p>
-</div>
-</div>
-<div class="bg-white/5 p-10 border border-white/10 backdrop-blur-sm">
-<div class="flex text-secondary mb-6">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<p class="font-body-lg text-body-lg italic mb-8">"We've used Joe Best Aluminum for several industrial warehouse roofing projects. Their materials handle the coastal salt-air exceptionally well."</p>
-<div>
-<p class="font-technical-data text-technical-data font-bold">Emeka Nwosu</p>
-<p class="font-technical-data text-technical-data text-white/60">Project Manager, Horizon Logistics</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- CTA Section -->
-<section class="py-24 bg-white">
-<div class="max-w-5xl mx-auto px-8 text-center">
-<h2 class="font-headline-xl text-headline-xl text-primary mb-8">Ready to Elevate Your Space?</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-2xl mx-auto">
-                    Whether you're building a new home or renovating a commercial space, our technical team is ready to provide a detailed cost assessment.
+    <!-- Hero Section -->
+    <section class="relative min-h-[80vh] flex items-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIV1P7PRtJW5AiKrUcAvpzt-AkpXZrAFH3uajWR16KFNGiqpDE8KP94RZ207XDeP3ph3ZS1rZlLQ4qVW-LZb3l27bPT5m6jmq07fYWU9tkAW_2VCeH_JiXXFvLmD5Q-1eX_j-nU1C9lq91CPJh40TlYplG_KbWa0ons2KIYOa6D5NRyqZ5oGkjzViZQTWbxgKbfJ5bSNWvBUn8NZjU8DDxwCkVkeYkphu8hfhtxzuqNnOtJ4sDp9AUWFbkFgXDTTNY1V9uOJZcgqDi"/>
+            <div class="absolute inset-0 bg-black/60"></div>
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-8 w-full py-20">
+            <div class="max-w-2xl reveal">
+                <span class="inline-block bg-secondary text-white px-4 py-1 font-bold text-xs mb-6 uppercase tracking-widest">Premium Nigerian Quality</span>
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                    Expert Aluminum & Glass Solutions
+                </h1>
+                <p class="text-lg md:text-xl text-white/80 mb-10 leading-relaxed">
+                    At Joe Best Aluminum, we specialize in high-quality fabrication, glass installations, and modern finishing in Lagos.
                 </p>
-<div class="flex flex-col sm:flex-row justify-center gap-6">
-<a class="bg-secondary text-on-secondary px-10 py-5 font-label-caps text-label-caps flex items-center justify-center gap-3 hover:bg-secondary-container transition-all" href="tel:+23480000000">
-<span class="material-symbols-outlined">call</span> CALL NOW
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="galary.html" class="bg-secondary text-white text-center px-8 py-4 font-bold text-sm tracking-widest hover:bg-orange-600 transition-all uppercase">
+                        View Projects
                     </a>
-<a class="bg-primary text-on-primary px-10 py-5 font-label-caps text-label-caps flex items-center justify-center gap-3 hover:bg-primary-container transition-all" href="#">
-                        REQUEST A QUOTE
+                    <a href="service.html" class="border-2 border-white text-white text-center px-8 py-4 font-bold text-sm tracking-widest hover:bg-white hover:text-primary transition-all uppercase">
+                        Our Services
                     </a>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="w-full border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 py-12 max-w-7xl mx-auto">
-<div class="md:col-span-1">
-<div class="font-bold text-lg text-blue-900 dark:text-white mb-6 uppercase tracking-tighter">
-                    Joe Best Aluminum
                 </div>
-<p class="font-sans text-sm text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">
-                    Premium architectural aluminum and glass solutions for the modern Nigerian skyline. Precision in every cut.
-                </p>
-</div>
-<div>
-<h4 class="font-technical-data text-technical-data font-bold text-primary dark:text-white mb-6 uppercase tracking-wider">Services</h4>
-<ul class="space-y-4 font-sans text-sm text-slate-500 dark:text-slate-400">
-<li><a class="hover:text-orange-500 transition-colors" href="#">Aluminum Windows</a></li>
-<li><a class="hover:text-orange-500 transition-colors" href="#">Frameless Glass</a></li>
-<li><a class="hover:text-orange-500 transition-colors" href="#">Aluminum Roofing</a></li>
-<li><a class="hover:text-orange-500 transition-colors" href="#">Office Partitioning</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-technical-data text-technical-data font-bold text-primary dark:text-white mb-6 uppercase tracking-wider">Quick Links</h4>
-<ul class="space-y-4 font-sans text-sm text-slate-500 dark:text-slate-400">
-<li><a class="hover:text-orange-500 transition-colors" href="#">About Us</a></li>
-<li><a class="hover:text-orange-500 transition-colors" href="#">Project Gallery</a></li>
-<li><a class="hover:text-orange-500 transition-colors" href="#">Contact</a></li>
-<li><a class="hover:text-orange-500 transition-colors" href="#">FAQ</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-technical-data text-technical-data font-bold text-primary dark:text-white mb-6 uppercase tracking-wider">Contact</h4>
-<ul class="space-y-4 font-sans text-sm text-slate-500 dark:text-slate-400">
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-[18px]">location_on</span>
-<span>43 Shrita Street, Lagos.</span>
-</li>
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-[18px]">mail</span>
-<span>info@joebestaluminum.com</span>
-</li>
-</ul>
-</div>
-</div>
-<div class="border-t border-slate-200 dark:border-slate-800 px-8 py-6">
-<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-<p class="font-sans text-sm text-slate-500 dark:text-slate-400">© 2024 Joe Best Aluminum. 43 Shrita Street, Lagos.</p>
-<div class="flex gap-8 font-sans text-sm">
-<a class="text-slate-500 dark:text-slate-400 hover:text-orange-500 transition-colors" href="#">Privacy Policy</a>
-<a class="text-slate-500 dark:text-slate-400 hover:text-orange-500 transition-colors" href="#">Terms of Service</a>
-</div>
-</div>
-</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Our Specializations</h2>
+                <div class="h-1 w-20 bg-secondary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Windows -->
+                <div class="p-8 border border-slate-100 bg-slate-50 hover:border-secondary transition-all reveal">
+                    <span class="material-symbols-outlined text-4xl text-secondary mb-4">window</span>
+                    <h3 class="text-xl font-bold mb-3">Windows & Doors</h3>
+                    <p class="text-slate-600">Aluminum sliding windows, casement windows, and heavy-duty doors.</p>
+                </div>
+                <!-- Partitioning -->
+                <div class="p-8 border border-slate-100 bg-slate-50 hover:border-secondary transition-all reveal">
+                    <span class="material-symbols-outlined text-4xl text-secondary mb-4">grid_view</span>
+                    <h3 class="text-xl font-bold mb-3">Partition & Glass</h3>
+                    <p class="text-slate-600">Office partitions and frameless glass for toilets and storefronts.</p>
+                </div>
+                <!-- Roofing -->
+                <div class="p-8 border border-slate-100 bg-slate-50 hover:border-secondary transition-all reveal">
+                    <span class="material-symbols-outlined text-4xl text-secondary mb-4">roofing</span>
+                    <h3 class="text-xl font-bold mb-3">Aluminum Roofing</h3>
+                    <p class="text-slate-600">Long-span aluminum and stone-coated roofing solutions.</p>
+                </div>
+                <!-- Railings -->
+                <div class="p-8 border border-slate-100 bg-slate-50 hover:border-secondary transition-all reveal">
+                    <span class="material-symbols-outlined text-4xl text-secondary mb-4">staircase</span>
+                    <h3 class="text-xl font-bold mb-3">Staircase & Railings</h3>
+                    <p class="text-slate-600">Frameless glass railings and staircase finishing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Moving Customer Reviews -->
+    <section class="py-20 bg-primary overflow-hidden">
+        <div class="text-center mb-12">
+            <h2 class="text-white text-3xl font-bold">What Our Customers Say</h2>
+        </div>
+        <div class="animate-marquee">
+            <!-- 7 Nigerian Reviews duplicated to loop -->
+            <div class="flex gap-8 px-4">
+                <!-- Review 1 -->
+                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
+                    <p class="italic mb-4">"The aluminum windows they installed in my house in Lekki are top-notch. Very professional."</p>
+                    <p class="font-bold text-secondary">- Mr. Olatunji, Lagos</p>
+                </div>
+                <!-- Review 2 -->
+                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
+                    <p class="italic mb-4">"Excellent work on our office frameless glass partition. Joe Best is indeed the best."</p>
+                    <p class="font-bold text-secondary">- Chinedu Okeke, Ikeja</p>
+                </div>
+                <!-- Review 3 -->
+                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
+                    <p class="italic mb-4">"They handled my roofing project in Ikorodu. No leaks and the finishing is beautiful."</p>
+                    <p class="font-bold text-secondary">- Alhaja Fatima, Lagos</p>
+                </div>
+                <!-- Review 4 -->
+                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
+                    <p class="italic mb-4">"Very honest people. They gave me a fair price for my staircase railings and delivered on time."</p>
+                    <p class="font-bold text-secondary">- Engr. Tunde, Agege</p>
+                </div>
+                <!-- Review 5 -->
+                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
+                    <p class="italic mb-4">"I highly recommend them for any aluminum partition job. Clean and neat work."</p>
+                    <p class="font-bold text-secondary">- Mrs. Adebayo, Surulere</p>
+                </div>
+                <!-- Review 6 -->
+                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
+                    <p class="italic mb-4">"The best aluminum company in Dopemu. Very reliable and skilled technicians."</p>
+                    <p class="font-bold text-secondary">- Pastor Emeka, Lagos</p>
+                </div>
+                <!-- Review 7 -->
+                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
+                    <p class="italic mb-4">"Used them for my hotel glass balcony. Exceptional quality material."</p>
+                    <p class="font-bold text-secondary">- Chief Segun, Victoria Island</p>
+                </div>
+            </div>
+            <!-- Duplicate set for infinite loop -->
+            <div class="flex gap-8 px-4">
+                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
+                    <p class="italic mb-4">"The aluminum windows they installed in my house in Lekki are top-notch. Very professional."</p>
+                    <p class="font-bold text-secondary">- Mr. Olatunji, Lagos</p>
+                </div>
+                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
+                    <p class="italic mb-4">"Excellent work on our office frameless glass partition. Joe Best is indeed the best."</p>
+                    <p class="font-bold text-secondary">- Chinedu Okeke, Ikeja</p>
+                </div>
+                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
+                    <p class="italic mb-4">"They handled my roofing project in Ikorodu. No leaks and the finishing is beautiful."</p>
+                    <p class="font-bold text-secondary">- Alhaja Fatima, Lagos</p>
+                </div>
+                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
+                    <p class="italic mb-4">"Very honest people. They gave me a fair price for my staircase railings and delivered on time."</p>
+                    <p class="font-bold text-secondary">- Engr. Tunde, Agege</p>
+                </div>
+                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
+                    <p class="italic mb-4">"I highly recommend them for any aluminum partition job. Clean and neat work."</p>
+                    <p class="font-bold text-secondary">- Mrs. Adebayo, Surulere</p>
+                </div>
+                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
+                    <p class="italic mb-4">"The best aluminum company in Dopemu. Very reliable and skilled technicians."</p>
+                    <p class="font-bold text-secondary">- Pastor Emeka, Lagos</p>
+                </div>
+                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
+                    <p class="italic mb-4">"Used them for my hotel glass balcony. Exceptional quality material."</p>
+                    <p class="font-bold text-secondary">- Chief Segun, Victoria Island</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-slate-900 text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div>
+            <h4 class="text-xl font-bold mb-6 text-secondary uppercase">Joe Best Aluminum</h4>
+            <p class="text-slate-400 leading-relaxed mb-4">
+                43 Shrita Street, Aluminum Village, Dopemu Agege, Lagos.
+            </p>
+            <div class="flex flex-col space-y-2 text-slate-300">
+                <a href="tel:08166407917">📞 08166407917</a>
+                <a href="tel:07015506421">📞 07015506421</a>
+                <a href="mailto:akinbobola.joseph25gmail.com">✉️ akinbobola.joseph25@gmail.com</a>
+            </div>
+        </div>
+        <div>
+            <h4 class="text-lg font-bold mb-6 uppercase">Quick Links</h4>
+            <ul class="space-y-4 text-slate-400">
+                <li><a href="index.html" class="hover:text-secondary">Home</a></li>
+                <li><a href="service.html" class="hover:text-secondary">Services</a></li>
+                <li><a href="galary.html" class="hover:text-secondary">Gallery</a></li>
+                <li><button onclick="togglePolicyModal()" class="hover:text-secondary">Our Policies</button></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="text-lg font-bold mb-6 uppercase">Our Services</h4>
+            <ul class="text-slate-400 space-y-2">
+                <li>• Aluminum Windows & Doors</li>
+                <li>• Aluminum Roofs</li>
+                <li>• Aluminum Partition</li>
+                <li>• Frameless Glass Toilet</li>
+                <li>• Frameless Railings</li>
+                <li>• Staircase Installations</li>
+            </ul>
+        </div>
+    </div>
+    <div class="border-t border-white/10 pt-8 text-center text-slate-500 text-sm">
+        © 2025 Joe Best Aluminum. All Rights Reserved.
+    </div>
 </footer>
-</body></html>
+
+<!-- Modals -->
+<!-- Quote Modal -->
+<div id="quoteModal" class="modal-overlay">
+    <div class="bg-white p-8 w-full max-w-md mx-4 rounded-lg relative">
+        <button onclick="toggleQuoteModal()" class="absolute top-4 right-4 text-slate-400 hover:text-black">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <h3 class="text-2xl font-bold mb-6 text-primary">Request a Quote</h3>
+        <form id="whatsappForm" class="space-y-4">
+            <div>
+                <label class="block text-sm font-bold mb-1">Your Name</label>
+                <input type="text" id="custName" required class="w-full border-slate-200 rounded px-4 py-2">
+            </div>
+            <div>
+                <label class="block text-sm font-bold mb-1">Service Needed</label>
+                <select id="custService" class="w-full border-slate-200 rounded px-4 py-2">
+                    <option>Aluminum Windows</option>
+                    <option>Aluminum Roofing</option>
+                    <option>Frameless Glass</option>
+                    <option>Office Partition</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-bold mb-1">Message</label>
+                <textarea id="custMsg" class="w-full border-slate-200 rounded px-4 py-2" rows="3"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-secondary text-white font-bold py-3 hover:bg-primary transition-all">SUBMIT VIA WHATSAPP</button>
+        </form>
+    </div>
+</div>
+
+<!-- Policy Modal -->
+<div id="policyModal" class="modal-overlay">
+    <div class="bg-white p-8 w-full max-w-2xl mx-4 rounded-lg relative max-h-[80vh] overflow-y-auto">
+        <button onclick="togglePolicyModal()" class="absolute top-4 right-4">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <h3 class="text-2xl font-bold mb-4 text-primary">Our Business Policies</h3>
+        <div class="space-y-4 text-slate-600">
+            <p><strong>1. Quality Guarantee:</strong> We use high-grade 6063-T5 aluminum for all structural works.</p>
+            <p><strong>2. Payment Terms:</strong> 70% mobilization fee is required for materials, 30% upon completion.</p>
+            <p><strong>3. Warranty:</strong> We offer a 12-month warranty on all moving parts and leakages.</p>
+            <p><strong>4. Delivery:</strong> Timelines are strictly followed based on the scope of project agreed upon.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/2347015506421" target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl floating-wa">
+    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.319 1.592 5.548 0 10.064-4.516 10.066-10.066.002-2.686-1.047-5.212-2.953-7.116s-4.439-2.952-7.126-2.952c-5.549 0-10.066 4.517-10.067 10.067 0 2.105.622 4.12 1.802 5.879l-1.017 3.71 3.828-1.004z"/></svg>
+</a>
+
+<script>
+    // Reveal animation logic
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+    window.addEventListener("scroll", reveal);
+
+    // Menu Logic
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        const icon = document.getElementById('menuIcon');
+        menu.classList.toggle('hidden');
+        menu.classList.toggle('flex');
+        icon.innerText = menu.classList.contains('hidden') ? 'menu' : 'close';
+    }
+
+    // Modal Logics
+    function toggleQuoteModal() {
+        document.getElementById('quoteModal').classList.toggle('active');
+    }
+    function togglePolicyModal() {
+        document.getElementById('policyModal').classList.toggle('active');
+    }
+
+    // WhatsApp Form Submission
+    document.getElementById('whatsappForm').onsubmit = function(e) {
+        e.preventDefault();
+        const name = document.getElementById('custName').value;
+        const service = document.getElementById('custService').value;
+        const msg = document.getElementById('custMsg').value;
+        const phone = "2347015506421";
+        
+        const text = `Hello Joe Best Aluminum, my name is ${name}. I am interested in ${service}. ${msg}`;
+        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
+    }
+</script>
+
+</body>
+</html>
