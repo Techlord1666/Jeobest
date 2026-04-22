@@ -44,18 +44,21 @@
         .modal-overlay.active { display: flex; }
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        /* Mobile Table Fix */
+        .table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
     </style>
 </head>
 <body class="bg-white text-slate-900 font-sans overflow-x-hidden">
 
 <!-- NAVIGATION -->
 <header class="fixed top-0 w-full z-[60] bg-white border-b border-slate-200 h-20">
-    <div class="flex justify-between items-center px-6 h-full max-w-7xl mx-auto">
-        <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full overflow-hidden border border-slate-200 flex-shrink-0">
+    <div class="flex justify-between items-center px-4 md:px-6 h-full max-w-7xl mx-auto">
+        <div class="flex items-center gap-2 md:gap-3">
+            <div class="w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden border border-slate-200 flex-shrink-0">
                 <img src="IMG_1040.png" alt="Joe Best Logo" class="w-full h-full object-cover">
             </div>
-            <div class="text-lg md:text-xl font-black tracking-tighter text-primary uppercase">Joe Best Aluminum</div>
+            <div class="text-base md:text-xl font-black tracking-tighter text-primary uppercase">Joe Best Aluminum</div>
         </div>
 
         <nav class="hidden md:flex items-center space-x-10 font-bold text-xs uppercase tracking-widest">
@@ -64,10 +67,10 @@
             <a class="text-slate-600 hover:text-secondary transition-colors" href="Galary.html">Gallery</a>
         </nav>
 
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-2">
             <button onclick="toggleQuoteModal()" class="hidden md:block bg-primary text-white px-6 py-2.5 font-bold text-xs uppercase hover:bg-secondary transition-all">Get a Quote</button>
             <button onclick="toggleMobileMenu()" class="md:hidden text-primary p-2">
-                <span class="material-symbols-outlined text-4xl" id="menuIcon">menu</span>
+                <span class="material-symbols-outlined text-3xl" id="menuIcon">menu</span>
             </button>
         </div>
     </div>
@@ -81,7 +84,7 @@
             </div>
             <button onclick="toggleMobileMenu()" class="text-primary"><span class="material-symbols-outlined text-4xl">close</span></button>
         </div>
-        <nav class="flex flex-col space-y-8 text-3xl font-bold">
+        <nav class="flex flex-col space-y-8 text-2xl font-bold">
             <a href="index.html" class="text-primary" onclick="toggleMobileMenu()">Home</a>
             <a href="Service.html" class="text-secondary" onclick="toggleMobileMenu()">Service</a>
             <a href="Galary.html" class="text-primary" onclick="toggleMobileMenu()">Gallery</a>
@@ -94,128 +97,183 @@
 
 <main class="pt-20">
     <!-- PAGE HEADER -->
-    <section class="bg-primary py-20 relative overflow-hidden">
+    <section class="bg-primary py-12 md:py-20 relative overflow-hidden">
         <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle,#ffffff_1px,transparent_1px)] bg-[size:30px_30px]"></div>
-        <div class="max-w-7xl mx-auto px-8 relative z-10 text-center">
-            <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-4 block">Architectural Excellence</span>
-            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 uppercase">Our Specialized Services</h1>
-            <p class="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">Precision-engineered aluminum and glass solutions for residential and commercial buildings in Lagos and beyond.</p>
+        <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10 text-center">
+            <span class="text-secondary font-bold tracking-widest uppercase text-xs md:text-sm mb-4 block">Architectural Excellence</span>
+            <h1 class="text-3xl md:text-6xl font-bold text-white mb-4 md:mb-6 uppercase">Our Specialized Services</h1>
+            <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">Precision-engineered aluminum and glass solutions for residential and commercial buildings in Lagos.</p>
         </div>
     </section>
 
-    <!-- SERVICES LIST WITH IMAGES -->
-    <section class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                
+    <!-- SERVICES LIST -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
                 <!-- Service 1 -->
                 <div class="reveal group">
-                    <div class="h-64 overflow-hidden mb-6 shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1503708928676-1cb796a0891e?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="h-56 md:h-64 overflow-hidden mb-6 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1503708928676-1cb796a0891e?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Windows">
                     </div>
-                    <h3 class="text-2xl font-bold text-primary mb-3 uppercase">Aluminum Windows</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Top-quality sliding, casement, and fixed aluminum windows. We ensure airtight sealing to prevent leaks and reduce external noise.</p>
+                    <h3 class="text-xl md:text-2xl font-bold text-primary mb-3 uppercase">Aluminum Windows</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">High-performance sliding and casement windows. Engineered for airtight sealing and durability.</p>
                 </div>
-
                 <!-- Service 2 -->
                 <div class="reveal group">
-                    <div class="h-64 overflow-hidden mb-6 shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1481277542470-605612bd2d61?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="h-56 md:h-64 overflow-hidden mb-6 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1481277542470-605612bd2d61?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Doors">
                     </div>
-                    <h3 class="text-2xl font-bold text-primary mb-3 uppercase">Aluminum Doors</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Strong and elegant entryways. We fabricate heavy-duty aluminum swing and sliding doors with premium lock systems for maximum security.</p>
+                    <h3 class="text-xl md:text-2xl font-bold text-primary mb-3 uppercase">Aluminum Doors</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Strong, modern entryways and heavy-duty sliding doors with security locking systems.</p>
                 </div>
-
                 <!-- Service 3 -->
                 <div class="reveal group">
-                    <div class="h-64 overflow-hidden mb-6 shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="h-56 md:h-64 overflow-hidden mb-6 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Roofing">
                     </div>
-                    <h3 class="text-2xl font-bold text-primary mb-3 uppercase">Aluminum Roof</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Durable roofing solutions including long-span aluminum and stone-coated sheets. Built to withstand the harsh Nigerian sun and heavy rainfall.</p>
+                    <h3 class="text-xl md:text-2xl font-bold text-primary mb-3 uppercase">Aluminum Roof</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Long-span and stone-coated roofing solutions built to withstand harsh Nigerian weather.</p>
                 </div>
-
                 <!-- Service 4 -->
                 <div class="reveal group">
-                    <div class="h-64 overflow-hidden mb-6 shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="h-56 md:h-64 overflow-hidden mb-6 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Partition">
                     </div>
-                    <h3 class="text-2xl font-bold text-primary mb-3 uppercase">Aluminum Partition</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Professional office and indoor partitioning. We create sound-insulated workspaces with sleek aluminum frames and glass panels.</p>
+                    <h3 class="text-xl md:text-2xl font-bold text-primary mb-3 uppercase">Aluminum Partition</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Professional office partitioning systems for neat and sound-insulated workspaces.</p>
                 </div>
-
                 <!-- Service 5 -->
                 <div class="reveal group">
-                    <div class="h-64 overflow-hidden mb-6 shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1600585154526-990dcea4db0d?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="h-56 md:h-64 overflow-hidden mb-6 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1600585154526-990dcea4db0d?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Glass Toilet">
                     </div>
-                    <h3 class="text-2xl font-bold text-primary mb-3 uppercase">Frameless Glass Toilet</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Modern tempered frameless glass shower cubicles and toilet dividers. Adds a luxurious and clean feel to your bathroom space.</p>
+                    <h3 class="text-xl md:text-2xl font-bold text-primary mb-3 uppercase">Frameless Glass Toilet</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Elegant tempered glass shower cubicles and dividers for modern luxury bathrooms.</p>
                 </div>
-
                 <!-- Service 6 -->
                 <div class="reveal group">
-                    <div class="h-64 overflow-hidden mb-6 shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="h-56 md:h-64 overflow-hidden mb-6 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Railings">
                     </div>
-                    <h3 class="text-2xl font-bold text-primary mb-3 uppercase">Frameless Rainy's Staircase</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Expertly crafted frameless glass railings and staircase finishing. We use heavy-duty tempered safety glass for structural integrity and beauty.</p>
+                    <h3 class="text-xl md:text-2xl font-bold text-primary mb-3 uppercase">Frameless Railings</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Safety glass railings and rainy's staircase finishing for premium residential looks.</p>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- WHY OUR SERVICE IS THE BEST SECTION -->
-    <section class="py-24 bg-slate-50 border-y border-slate-200">
-        <div class="max-w-7xl mx-auto px-8">
-            <div class="text-center mb-16 reveal">
-                <span class="text-secondary font-bold tracking-widest uppercase text-sm mb-2 block">The Joe Best Advantage</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-primary uppercase">Why Our Service is the Best</h2>
+    <!-- WHY OUR SERVICE IS THE BEST -->
+    <section class="py-16 md:py-24 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 md:px-8 text-center">
+            <div class="reveal mb-12">
+                <h2 class="text-2xl md:text-4xl font-bold text-primary uppercase">Why Our Service is the Best</h2>
                 <div class="w-20 h-1 bg-secondary mx-auto mt-4"></div>
             </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="bg-white p-6 md:p-8 shadow-sm reveal">
+                    <h4 class="font-bold text-secondary mb-2">1. HIGH-GRADE MATERIALS</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">We use 6063-T5 aluminum profiles that never corrode in Lagos humidity.</p>
+                </div>
+                <div class="bg-white p-6 md:p-8 shadow-sm reveal">
+                    <h4 class="font-bold text-secondary mb-2">2. PRECISION ENGINEERING</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Perfectly measured joints to ensure zero leaks during heavy rainfall.</p>
+                </div>
+                <div class="bg-white p-6 md:p-8 shadow-sm reveal">
+                    <h4 class="font-bold text-secondary mb-2">3. EXPERT TECHNICIANS</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Our team has 15+ years of experience in the Nigerian landscape.</p>
+                </div>
+                <div class="bg-white p-6 md:p-8 shadow-sm reveal">
+                    <h4 class="font-bold text-secondary mb-2">4. PROMPT DELIVERY</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Efficient fabrication process to meet your project deadlines.</p>
+                </div>
+                <div class="bg-white p-6 md:p-8 shadow-sm reveal">
+                    <h4 class="font-bold text-secondary mb-2">5. 12-MONTH GUARANTEE</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Full warranty on structural leakages and moving parts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- 1 -->
-                <div class="bg-white p-8 shadow-sm border border-slate-100 reveal">
-                    <span class="material-symbols-outlined text-secondary text-5xl mb-4">verified</span>
-                    <h4 class="text-xl font-bold mb-3 uppercase">1. High-Grade Materials</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed">We strictly use 6063-T5 architectural aluminum profiles that never corrode, even in Lagos humidity.</p>
+    <!-- PRICING SECTION (FROM IMAGE) -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 md:px-6 reveal">
+            <div class="border-2 border-slate-200 p-4 md:p-8 bg-white shadow-lg">
+                <!-- Header of Quote -->
+                <div class="text-center border-b-2 border-slate-100 pb-6 mb-6">
+                    <h2 class="text-2xl md:text-3xl font-black text-primary uppercase">Joe Best Aluminum</h2>
+                    <p class="text-[10px] md:text-xs text-slate-500 mt-1 uppercase">Specialized on Aluminum such as Aluminum Partition, Cladding, Roofing Etc</p>
+                    <p class="text-[9px] md:text-xs text-slate-500">43, Shitta Street, Aluminium Village, Dopemu Agege, Lagos.</p>
+                    <p class="text-[9px] md:text-xs font-bold text-primary">Tel: 08166407917, 07015506421</p>
                 </div>
-                <!-- 2 -->
-                <div class="bg-white p-8 shadow-sm border border-slate-100 reveal">
-                    <span class="material-symbols-outlined text-secondary text-5xl mb-4">precision_manufacturing</span>
-                    <h4 class="text-xl font-bold mb-3 uppercase">2. Precision Engineering</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed">Every joint is perfectly measured and fabricated to ensure a zero-leak installation during heavy rainfall.</p>
+
+                <div class="flex justify-end mb-4">
+                    <p class="text-xs md:text-sm font-bold">24/3/2026</p>
                 </div>
-                <!-- 3 -->
-                <div class="bg-white p-8 shadow-sm border border-slate-100 reveal">
-                    <span class="material-symbols-outlined text-secondary text-5xl mb-4">groups</span>
-                    <h4 class="text-xl font-bold mb-3 uppercase">3. 15+ Years Experience</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed">Our technicians understand the Nigerian construction landscape perfectly, ensuring expert delivery on every site.</p>
+                
+                <h3 class="text-sm md:text-lg font-black text-center underline uppercase mb-6 tracking-wider">Quotation for Hinge Door with Glass</h3>
+
+                <!-- The Table -->
+                <div class="table-container">
+                    <table class="w-full border-collapse border border-slate-800 text-[10px] md:text-sm">
+                        <thead>
+                            <tr class="bg-slate-50">
+                                <th class="border border-slate-800 p-2 text-left">S/NO</th>
+                                <th class="border border-slate-800 p-2 text-left">DESCRIPTION</th>
+                                <th class="border border-slate-800 p-2">QTY</th>
+                                <th class="border border-slate-800 p-2">RATE</th>
+                                <th class="border border-slate-800 p-2">AMOUNT</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border border-slate-800 p-2">1</td>
+                                <td class="border border-slate-800 p-2">2570 x 2900</td>
+                                <td class="border border-slate-800 p-2 text-center">1</td>
+                                <td class="border border-slate-800 p-2">820,000</td>
+                                <td class="border border-slate-800 p-2">820,000.00</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-slate-800 p-2">2</td>
+                                <td class="border border-slate-800 p-2">440 x 2700</td>
+                                <td class="border border-slate-800 p-2 text-center">1</td>
+                                <td class="border border-slate-800 p-2">885,000</td>
+                                <td class="border border-slate-800 p-2">885,000.00</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-slate-800 p-2">3</td>
+                                <td class="border border-slate-800 p-2">4500 x 2850</td>
+                                <td class="border border-slate-800 p-2 text-center">1</td>
+                                <td class="border border-slate-800 p-2">930,000</td>
+                                <td class="border border-slate-800 p-2">930,000.00</td>
+                            </tr>
+                            <tr>
+                                <td class="border-l border-slate-800" colspan="2"></td>
+                                <td class="border border-slate-800 p-2 text-left" colspan="2">Transportation</td>
+                                <td class="border border-slate-800 p-2">150,000.00</td>
+                            </tr>
+                            <tr>
+                                <td class="border-l border-slate-800" colspan="2"></td>
+                                <td class="border border-slate-800 p-2 text-left" colspan="2">Installation</td>
+                                <td class="border border-slate-800 p-2">650,000.00</td>
+                            </tr>
+                            <tr class="font-black bg-slate-50">
+                                <td class="border-l border-b border-slate-800" colspan="2"></td>
+                                <td class="border border-slate-800 p-2 text-left uppercase" colspan="2">Grand Total</td>
+                                <td class="border border-slate-800 p-2">N3,435,000.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <!-- 4 -->
-                <div class="bg-white p-8 shadow-sm border border-slate-100 reveal">
-                    <span class="material-symbols-outlined text-secondary text-5xl mb-4">speed</span>
-                    <h4 class="text-xl font-bold mb-3 uppercase">4. Prompt Delivery</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed">We respect your timelines. Our fabrication process is fast and efficient without compromising quality.</p>
-                </div>
-                <!-- 5 -->
-                <div class="bg-white p-8 shadow-sm border border-slate-100 reveal lg:col-span-1">
-                    <span class="material-symbols-outlined text-secondary text-5xl mb-4">security</span>
-                    <h4 class="text-xl font-bold mb-3 uppercase">5. 12-Month Guarantee</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed">We offer a full 1-year warranty on all structural leakages and moving parts for your peace of mind.</p>
-                </div>
+                <p class="text-[9px] text-slate-400 mt-4 italic">*Pricing shown is a sample quotation for specific dimensions.</p>
             </div>
         </div>
     </section>
 
     <!-- CALL TO ACTION -->
-    <section class="py-24 bg-white">
-        <div class="max-w-5xl mx-auto px-8 text-center bg-primary p-16 rounded-lg reveal shadow-2xl">
-            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 uppercase">Ready to start your project?</h2>
-            <p class="text-slate-400 text-lg mb-10">Get a detailed technical quote and expert advice today.</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-6">
+    <section class="py-16 md:py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-6 text-center bg-primary p-8 md:p-16 rounded-lg reveal shadow-2xl">
+            <h2 class="text-2xl md:text-5xl font-bold text-white mb-6 uppercase">Ready to start your project?</h2>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <button onclick="toggleQuoteModal()" class="bg-secondary text-white px-10 py-5 font-bold uppercase tracking-widest hover:scale-105 transition-transform">Get a Quote</button>
                 <a href="Galary.html" class="border-2 border-secondary text-secondary px-10 py-5 font-bold uppercase tracking-widest hover:bg-secondary hover:text-white transition-all">View Portfolio</a>
             </div>
@@ -224,46 +282,43 @@
 </main>
 
 <!-- FOOTER -->
-<footer class="bg-slate-900 text-white pt-20 pb-10">
-    <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<footer class="bg-slate-900 text-white pt-16 md:pt-20 pb-10">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
         <div class="md:col-span-2">
             <h4 class="text-2xl font-black text-secondary mb-6 uppercase">Joe Best Aluminum</h4>
-            <p class="text-slate-400 mb-8 max-w-sm">Premium architectural aluminum and glass solutions in Lagos. Precision in every cut since 2012.</p>
+            <p class="text-slate-400 text-sm leading-relaxed max-w-sm">Premium architectural aluminum and glass solutions. Engineering excellence in Lagos since 2012.</p>
         </div>
         <div>
-            <h4 class="text-lg font-bold mb-6 uppercase tracking-widest">Information</h4>
-            <ul class="space-y-4 text-slate-400 text-sm font-medium">
+            <h4 class="text-lg font-bold mb-6 uppercase tracking-widest">Links</h4>
+            <ul class="space-y-4 text-slate-400 text-sm">
                 <li><a href="index.html" class="hover:text-secondary">Home</a></li>
-                <li><button onclick="togglePolicyModal()" class="hover:text-secondary">Business Policies</button></li>
-                <li><button onclick="toggleFaqModal()" class="hover:text-secondary">FAQ (Questions)</button></li>
+                <li><button onclick="togglePolicyModal()" class="hover:text-secondary">Policies</button></li>
+                <li><button onclick="toggleFaqModal()" class="hover:text-secondary">FAQ</button></li>
                 <li><a href="Galary.html" class="hover:text-secondary">Gallery</a></li>
             </ul>
         </div>
         <div>
-            <h4 class="text-lg font-bold mb-6 uppercase tracking-widest text-white">Contact Us</h4>
-            <div class="text-slate-400 space-y-4 text-sm font-medium">
-                <p>📍 43 Shrita Street, Aluminum Village, Dopemu Agege, Lagos.</p>
-                <p>📞 08166407917</p>
-                <p>📞 07015506421</p>
+            <h4 class="text-lg font-bold mb-6 uppercase tracking-widest">Contact</h4>
+            <div class="text-slate-400 space-y-4 text-sm">
+                <p>📍 43 Shrita St, Dopemu Agege, Lagos.</p>
+                <p>📞 08166407917, 07015506421</p>
                 <p>✉️ akinbobola.joseph25@gmail.com</p>
             </div>
         </div>
     </div>
     
-    <div class="border-t border-white/10 pt-10 text-center text-slate-500 text-xs px-8">
-        <p class="mb-8 uppercase tracking-widest">© 2025 JOE BEST ALUMINUM. ALL RIGHTS RESERVED. 43 SHRITA STREET, LAGOS.</p>
-        <!-- Developer Button -->
-        <a href="https://wa.me/2349032473005?text=Hello,%20I%20saw%20Joe%20Best%20Aluminum%20website%20and%20I%20want%20to%20get%20a%20website%20today." target="_blank" class="inline-block bg-secondary/10 hover:bg-secondary text-secondary hover:text-white border border-secondary px-6 py-2.5 rounded-full font-bold uppercase tracking-widest transition-all">
+    <div class="border-t border-white/10 pt-10 text-center text-slate-500 text-[10px] px-8 uppercase">
+        <p class="mb-8">© 2025 JOE BEST ALUMINUM. 43 SHRITA STREET, LAGOS.</p>
+        <a href="https://wa.me/2349032473005" target="_blank" class="inline-block bg-secondary/10 hover:bg-secondary text-secondary hover:text-white border border-secondary px-6 py-2.5 rounded-full font-bold transition-all">
             Get Your Website Today
         </a>
     </div>
 </footer>
 
 <!-- MODALS -->
-<!-- Quote Form Modal -->
 <div id="quoteModal" class="modal-overlay">
     <div class="bg-white p-10 w-full max-w-md mx-4 rounded-lg relative">
-        <button onclick="toggleQuoteModal()" class="absolute top-4 right-4 text-slate-400 hover:text-black transition-colors"><span class="material-symbols-outlined">close</span></button>
+        <button onclick="toggleQuoteModal()" class="absolute top-4 right-4 text-slate-400"><span class="material-symbols-outlined">close</span></button>
         <h3 class="text-2xl font-black mb-6 text-primary uppercase">Request Quote</h3>
         <form id="quoteForm" class="space-y-4">
             <input type="text" id="qName" placeholder="Full Name" required class="w-full border p-4 outline-none">
@@ -278,31 +333,25 @@
     </div>
 </div>
 
-<!-- FAQ Modal -->
 <div id="faqModal" class="modal-overlay">
     <div class="bg-white p-10 w-full max-w-2xl mx-4 rounded-lg relative max-h-[80vh] overflow-y-auto">
-        <button onclick="toggleFaqModal()" class="absolute top-4 right-4 text-slate-400 hover:text-black transition-colors"><span class="material-symbols-outlined">close</span></button>
-        <h3 class="text-2xl font-black mb-8 text-primary uppercase border-b-2 border-secondary pb-2">Frequently Asked Questions</h3>
-        <div class="space-y-8">
-            <div><h4 class="font-bold text-primary mb-1">How long does an installation take?</h4><p class="text-slate-600 text-sm">Most window projects take 7 to 14 working days from mobilization.</p></div>
-            <div><h4 class="font-bold text-primary mb-1">Do you visit sites for measurements?</h4><p class="text-slate-600 text-sm">Yes, our technical team visits sites anywhere in Lagos to take precision measurements.</p></div>
-            <div><h4 class="font-bold text-primary mb-1">Is your glass tempered?</h4><p class="text-slate-600 text-sm">Yes, we strictly use high-grade tempered safety glass (10mm - 15mm) for all frameless work.</p></div>
-            <div><h4 class="font-bold text-primary mb-1">Where is your office?</h4><p class="text-slate-600 text-sm">We are located at 43 Shrita Street, Aluminum Village, Dopemu Agege, Lagos.</p></div>
+        <button onclick="toggleFaqModal()" class="absolute top-4 right-4 text-slate-400"><span class="material-symbols-outlined">close</span></button>
+        <h3 class="text-xl font-black mb-6 text-primary uppercase border-b-2 border-secondary pb-2">FAQ</h3>
+        <div class="space-y-6">
+            <div><h4 class="font-bold text-primary">How long for installation?</h4><p class="text-slate-600 text-sm">7 to 14 working days from mobilization.</p></div>
+            <div><h4 class="font-bold text-primary">Is glass tempered?</h4><p class="text-slate-600 text-sm">Yes, we strictly use high-grade tempered glass.</p></div>
         </div>
     </div>
 </div>
 
-<!-- Policy Modal -->
 <div id="policyModal" class="modal-overlay">
-    <div class="bg-white p-10 w-full max-w-3xl mx-4 rounded-lg relative max-h-[85vh] overflow-y-auto">
-        <button onclick="togglePolicyModal()" class="absolute top-4 right-4 text-slate-400 hover:text-black transition-colors"><span class="material-symbols-outlined">close</span></button>
-        <h3 class="text-3xl font-black mb-8 text-primary uppercase border-b-2 border-secondary pb-4">Business Policies</h3>
-        <div class="space-y-6 text-slate-700 leading-relaxed text-sm">
-            <div><h4 class="font-bold text-secondary uppercase mb-2">1. Material Quality</h4><p>We use 6063-T5 architectural grade aluminum. We do not compromise on quality for cheaper alternatives.</p></div>
-            <div><h4 class="font-bold text-secondary uppercase mb-2">2. Payment Terms</h4><p>Mobilization requires a 70% deposit. The final 30% balance is payable immediately upon completion of installation.</p></div>
-            <div><h4 class="font-bold text-secondary uppercase mb-2">3. Warranty</h4><p>We provide a 12-month structural warranty covering leakages and moving parts failure under normal use.</p></div>
-            <div><h4 class="font-bold text-secondary uppercase mb-2">4. Project Timeline</h4><p>Estimated timelines are provided upon mobilization. We strive for prompt delivery on every project.</p></div>
-            <div><h4 class="font-bold text-secondary uppercase mb-2">5. Refunds</h4><p>Due to custom fabrication, deposits are non-refundable once materials have been purchased or cut to size.</p></div>
+    <div class="bg-white p-10 w-full max-w-2xl mx-4 rounded-lg relative max-h-[80vh] overflow-y-auto">
+        <button onclick="togglePolicyModal()" class="absolute top-4 right-4 text-slate-400"><span class="material-symbols-outlined">close</span></button>
+        <h3 class="text-xl font-black mb-6 text-primary uppercase border-b-2 border-secondary pb-4">Business Policies</h3>
+        <div class="space-y-6 text-slate-700 text-sm">
+            <p><strong>1. Mobilization:</strong> 70% deposit required. Final 30% on completion.</p>
+            <p><strong>2. Warranty:</strong> 12-month structural warranty.</p>
+            <p><strong>3. Custom Work:</strong> No refunds once materials are cut to size.</p>
         </div>
     </div>
 </div>
