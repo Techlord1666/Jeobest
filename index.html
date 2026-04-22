@@ -46,6 +46,11 @@
             justify-content: center;
         }
         .modal-overlay.active { display: flex; }
+
+        /* Fix for Mobile Menu Overlap */
+        #mobileMenu {
+            transition: all 0.3s ease-in-out;
+        }
     </style>
 
     <script id="tailwind-config">
@@ -64,13 +69,13 @@
 <body class="font-sans text-slate-900 bg-slate-50 overflow-x-hidden">
 
 <!-- Navigation -->
-<header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 h-20">
-    <div class="flex justify-between items-center px-6 md:px-8 h-full max-w-7xl mx-auto">
-        <div class="text-lg md:text-xl font-black tracking-tighter text-primary uppercase">
+<header class="fixed top-0 w-full z-[60] bg-white border-b border-slate-200 h-20">
+    <div class="flex justify-between items-center px-6 h-full max-w-7xl mx-auto">
+        <div class="text-lg font-black tracking-tighter text-primary uppercase">
             Joe Best Aluminum
         </div>
 
-        <!-- Desktop Menu (Home, Service, Gallery) -->
+        <!-- Desktop Menu -->
         <nav class="hidden md:flex items-center space-x-10 font-bold text-sm uppercase tracking-widest">
             <a class="text-secondary border-b-2 border-secondary" href="index.html">Home</a>
             <a class="text-slate-600 hover:text-secondary transition-colors" href="service.html">Service</a>
@@ -82,18 +87,34 @@
                 Get a Quote
             </button>
             
-            <button onclick="toggleMobileMenu()" class="md:hidden text-primary">
-                <span class="material-symbols-outlined text-3xl" id="menuIcon">menu</span>
+            <!-- Mobile Toggle Icon -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-primary p-2">
+                <span class="material-symbols-outlined text-4xl" id="menuIcon">menu</span>
             </button>
         </div>
     </div>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobileMenu" class="hidden fixed inset-0 top-20 bg-white z-40 p-8 flex-col space-y-6 text-xl font-bold border-t">
-        <a href="index.html" class="text-secondary" onclick="toggleMobileMenu()">Home</a>
-        <a href="service.html" class="text-primary" onclick="toggleMobileMenu()">Service</a>
-        <a href="galary.html" class="text-primary" onclick="toggleMobileMenu()">Gallery</a>
-        <button onclick="toggleQuoteModal(); toggleMobileMenu()" class="bg-primary text-white w-full py-4 mt-4">GET A QUOTE</button>
+    <!-- FIXED MOBILE MENU: Now using a solid background and high z-index to prevent overlap -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-white z-[100] flex-col p-8 transition-all duration-300">
+        <div class="flex justify-between items-center mb-12">
+            <div class="text-lg font-black text-primary uppercase">Joe Best Aluminum</div>
+            <button onclick="toggleMobileMenu()" class="text-primary">
+                <span class="material-symbols-outlined text-4xl">close</span>
+            </button>
+        </div>
+        
+        <nav class="flex flex-col space-y-8 text-3xl font-bold">
+            <a href="index.html" class="text-secondary" onclick="toggleMobileMenu()">Home</a>
+            <a href="service.html" class="text-primary" onclick="toggleMobileMenu()">Service</a>
+            <a href="galary.html" class="text-primary" onclick="toggleMobileMenu()">Gallery</a>
+        </nav>
+
+        <div class="mt-auto pb-10">
+            <button onclick="toggleQuoteModal(); toggleMobileMenu()" class="bg-primary text-white w-full py-5 font-bold text-lg uppercase tracking-widest">
+                Get a Quote
+            </button>
+            <p class="text-center text-slate-400 mt-6 text-sm">43 Shrita Street, Dopemu, Lagos.</p>
+        </div>
     </div>
 </header>
 
@@ -136,18 +157,8 @@
                         Joe Best Aluminum is a premier Nigerian aluminum fabrication company based in Lagos. With years of expertise, we specialize in transforming architectural visions into reality using high-grade materials and precision engineering.
                     </p>
                     <p class="text-slate-600 mb-8">
-                        From residential homes in Lekki to commercial complexes in Agege, we have built a reputation for integrity, quality, and timely delivery of projects. Our team is dedicated to providing weather-resistant and stylish solutions for the modern Nigerian climate.
+                        From residential homes in Lekki to commercial complexes in Agege, we have built a reputation for integrity, quality, and timely delivery.
                     </p>
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="border-l-4 border-secondary pl-4">
-                            <h4 class="text-2xl font-bold text-primary">100%</h4>
-                            <p class="text-sm text-slate-500 uppercase">Customer Satisfaction</p>
-                        </div>
-                        <div class="border-l-4 border-secondary pl-4">
-                            <h4 class="text-2xl font-bold text-primary">Local</h4>
-                            <p class="text-sm text-slate-500 uppercase">Nigerian Owned</p>
-                        </div>
-                    </div>
                 </div>
                 <div class="relative reveal">
                     <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkvt6IH4jwOv0WjEs514n4sYDyLg4pD_pNteYSLoyTBCfZIp-tMulDkqBIItRGyypuLeTlpftXoAGnuDCRIQliF2ebkPbAC0BxEk7QrHkKi4MB1i4Gd6k7UIGBQVrzsPEsCiK808h1L7Xk8vr3UoMtZvjOtg7a_srqJZGpgwvXaCbYZVdRznMao059KfjWLW4EM-1hvXriNs00wLwCzFKDfW940clezhkDe-u5zrv3ARoQXJYvWgzBh8Nan7EWdbvDD_cyPU5IJZHF" class="rounded-none shadow-2xl" alt="Worker">
@@ -160,140 +171,81 @@
     <section class="py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-8 text-center mb-16 reveal">
             <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Why We Are The Best</h2>
-            <p class="text-slate-600 max-w-2xl mx-auto">We don't just work with aluminum; we provide peace of mind through quality and professional service.</p>
+            <p class="text-slate-600 max-w-2xl mx-auto">Quality and professional service.</p>
         </div>
         <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div class="bg-white p-8 shadow-sm reveal text-center border-b-4 border-transparent hover:border-secondary transition-all">
+            <div class="bg-white p-8 shadow-sm reveal text-center">
                 <span class="material-symbols-outlined text-4xl text-secondary mb-4">verified</span>
                 <h4 class="font-bold text-lg mb-2">High-Grade Materials</h4>
-                <p class="text-sm text-slate-500">We use only the best 6063-T5 aluminum for long-lasting durability.</p>
             </div>
-            <div class="bg-white p-8 shadow-sm reveal text-center border-b-4 border-transparent hover:border-secondary transition-all">
+            <div class="bg-white p-8 shadow-sm reveal text-center">
                 <span class="material-symbols-outlined text-4xl text-secondary mb-4">engineering</span>
                 <h4 class="font-bold text-lg mb-2">Expert Installation</h4>
-                <p class="text-sm text-slate-500">Our technicians are certified and highly experienced in Nigerian construction.</p>
             </div>
-            <div class="bg-white p-8 shadow-sm reveal text-center border-b-4 border-transparent hover:border-secondary transition-all">
+            <div class="bg-white p-8 shadow-sm reveal text-center">
                 <span class="material-symbols-outlined text-4xl text-secondary mb-4">payments</span>
                 <h4 class="font-bold text-lg mb-2">Affordable Pricing</h4>
-                <p class="text-sm text-slate-500">We offer competitive market rates without compromising on quality.</p>
             </div>
-            <div class="bg-white p-8 shadow-sm reveal text-center border-b-4 border-transparent hover:border-secondary transition-all">
+            <div class="bg-white p-8 shadow-sm reveal text-center">
                 <span class="material-symbols-outlined text-4xl text-secondary mb-4">timer</span>
                 <h4 class="font-bold text-lg mb-2">Fast Delivery</h4>
-                <p class="text-sm text-slate-500">We respect your timelines and ensure we finish projects as scheduled.</p>
             </div>
         </div>
     </section>
 
     <!-- Moving Nigerian Reviews -->
     <section class="py-20 bg-primary overflow-hidden">
-        <div class="text-center mb-12">
-            <h2 class="text-white text-3xl font-bold">What Our Customers Say</h2>
-        </div>
         <div class="animate-marquee">
             <div class="flex gap-8 px-4">
-                <!-- Review 1-7 -->
-                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
-                    <p class="italic mb-4">"The aluminum windows they installed in my house in Lekki are top-notch. Very professional."</p>
-                    <p class="font-bold text-secondary">- Mr. Olatunji, Lagos</p>
-                </div>
-                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
-                    <p class="italic mb-4">"Excellent work on our office frameless glass partition. Joe Best is indeed the best."</p>
-                    <p class="font-bold text-secondary">- Chinedu Okeke, Ikeja</p>
-                </div>
-                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
-                    <p class="italic mb-4">"They handled my roofing project in Ikorodu. No leaks and the finishing is beautiful."</p>
-                    <p class="font-bold text-secondary">- Alhaja Fatima, Lagos</p>
-                </div>
-                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
-                    <p class="italic mb-4">"Very honest people. They gave me a fair price for my staircase railings."</p>
-                    <p class="font-bold text-secondary">- Engr. Tunde, Agege</p>
-                </div>
-                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
-                    <p class="italic mb-4">"I highly recommend them for any aluminum partition job. Neat work."</p>
-                    <p class="font-bold text-secondary">- Mrs. Adebayo, Surulere</p>
-                </div>
-                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
-                    <p class="italic mb-4">"The best aluminum company in Dopemu. Very reliable technicians."</p>
-                    <p class="font-bold text-secondary">- Pastor Emeka, Lagos</p>
-                </div>
-                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
-                    <p class="italic mb-4">"Used them for my hotel glass balcony. Exceptional quality material."</p>
-                    <p class="font-bold text-secondary">- Chief Segun, Victoria Island</p>
-                </div>
-            </div>
-            <!-- Duplicated for Loop -->
-            <div class="flex gap-8 px-4">
-                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
+                <div class="w-[350px] bg-white/10 p-8 text-white">
                     <p class="italic mb-4">"The aluminum windows they installed in my house in Lekki are top-notch."</p>
                     <p class="font-bold text-secondary">- Mr. Olatunji, Lagos</p>
                 </div>
-                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
+                <div class="w-[350px] bg-white/10 p-8 text-white">
                     <p class="italic mb-4">"Excellent work on our office frameless glass partition."</p>
                     <p class="font-bold text-secondary">- Chinedu Okeke, Ikeja</p>
                 </div>
-                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
+                <div class="w-[350px] bg-white/10 p-8 text-white">
                     <p class="italic mb-4">"They handled my roofing project in Ikorodu. No leaks."</p>
                     <p class="font-bold text-secondary">- Alhaja Fatima, Lagos</p>
                 </div>
-                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
-                    <p class="italic mb-4">"Very honest people. They gave me a fair price."</p>
+                <div class="w-[350px] bg-white/10 p-8 text-white">
+                    <p class="italic mb-4">"Honest people. Fair price for my staircase railings."</p>
                     <p class="font-bold text-secondary">- Engr. Tunde, Agege</p>
                 </div>
-                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
-                    <p class="italic mb-4">"I highly recommend them for any aluminum partition job."</p>
+                <div class="w-[350px] bg-white/10 p-8 text-white">
+                    <p class="italic mb-4">"Highly recommend for any aluminum partition job."</p>
                     <p class="font-bold text-secondary">- Mrs. Adebayo, Surulere</p>
                 </div>
-                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
+                <div class="w-[350px] bg-white/10 p-8 text-white">
                     <p class="italic mb-4">"The best aluminum company in Dopemu."</p>
                     <p class="font-bold text-secondary">- Pastor Emeka, Lagos</p>
                 </div>
-                <div class="w-[350px] bg-white/10 p-8 border border-white/10 text-white">
-                    <p class="italic mb-4">"Used them for my hotel glass balcony."</p>
+                <div class="w-[350px] bg-white/10 p-8 text-white">
+                    <p class="italic mb-4">"Used them for my hotel glass balcony. Exceptional."</p>
                     <p class="font-bold text-secondary">- Chief Segun, Victoria Island</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Form Section -->
+    <!-- Contact Form -->
     <section class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
                 <div class="reveal">
                     <h2 class="text-3xl font-bold text-primary mb-6">Contact Us Today</h2>
-                    <p class="text-slate-600 mb-8">Ready to start your project? Send us a message and we will get back to you immediately via WhatsApp.</p>
-                    
                     <div class="space-y-6">
-                        <div class="flex items-center gap-4">
-                            <div class="bg-secondary/10 p-3 text-secondary">
-                                <span class="material-symbols-outlined">location_on</span>
-                            </div>
-                            <span class="text-slate-700">43 Shrita street aluminum village Dopemu agege Lagos</span>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="bg-secondary/10 p-3 text-secondary">
-                                <span class="material-symbols-outlined">call</span>
-                            </div>
-                            <span class="text-slate-700">08166407917 | 07015506421</span>
-                        </div>
+                        <p>📍 43 Shrita street aluminum village Dopemu agege Lagos</p>
+                        <p>📞 08166407917 | 07015506421</p>
                     </div>
                 </div>
-
-                <!-- Main Contact Form -->
                 <div class="bg-slate-50 p-8 border border-slate-200 reveal">
                     <form id="mainContactForm" class="space-y-4">
-                        <div>
-                            <input type="text" id="name" placeholder="Full Name" required class="w-full p-3 border border-slate-300 rounded focus:border-secondary outline-none">
-                        </div>
-                        <div>
-                            <input type="text" id="phone" placeholder="Phone Number" required class="w-full p-3 border border-slate-300 rounded focus:border-secondary outline-none">
-                        </div>
-                        <div>
-                            <textarea id="message" rows="4" placeholder="How can we help you?" required class="w-full p-3 border border-slate-300 rounded focus:border-secondary outline-none"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-primary text-white py-4 font-bold tracking-widest hover:bg-secondary transition-all">SEND TO WHATSAPP</button>
+                        <input type="text" id="name" placeholder="Full Name" required class="w-full p-3 border border-slate-300 outline-none">
+                        <input type="text" id="phone" placeholder="Phone Number" required class="w-full p-3 border border-slate-300 outline-none">
+                        <textarea id="message" rows="4" placeholder="How can we help you?" required class="w-full p-3 border border-slate-300 outline-none"></textarea>
+                        <button type="submit" class="w-full bg-primary text-white py-4 font-bold tracking-widest hover:bg-secondary">SEND TO WHATSAPP</button>
                     </form>
                 </div>
             </div>
@@ -306,9 +258,7 @@
     <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
         <div>
             <h4 class="text-xl font-bold mb-6 text-secondary uppercase">Joe Best Aluminum</h4>
-            <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                Premium architectural aluminum and glass solutions for the modern Nigerian skyline. Precision in every cut.
-            </p>
+            <p class="text-slate-400 text-sm">Premium architectural aluminum and glass solutions.</p>
         </div>
         <div>
             <h4 class="text-lg font-bold mb-6 uppercase">Links</h4>
@@ -324,12 +274,8 @@
             <div class="text-slate-400 space-y-3 text-sm">
                 <p>📍 43 Shrita Street, Dopemu, Lagos.</p>
                 <p>📞 08166407917, 07015506421</p>
-                <p>✉️ akinbobola.joseph25@gmail.com</p>
             </div>
         </div>
-    </div>
-    <div class="border-t border-white/10 pt-8 text-center text-slate-500 text-xs">
-        © 2025 Joe Best Aluminum. All Rights Reserved.
     </div>
 </footer>
 
@@ -353,12 +299,11 @@
 <div id="policyModal" class="modal-overlay">
     <div class="bg-white p-8 w-full max-w-2xl mx-4 rounded relative max-h-[80vh] overflow-y-auto">
         <button onclick="togglePolicyModal()" class="absolute top-4 right-4"><span class="material-symbols-outlined">close</span></button>
-        <h3 class="text-2xl font-bold mb-4">Joe Best Aluminum Policies</h3>
+        <h3 class="text-2xl font-bold mb-4 text-primary">Joe Best Aluminum Policies</h3>
         <div class="space-y-4 text-slate-600">
-            <p><strong>1. Material Quality:</strong> We use only premium aluminum extrusion profiles and tempered glass.</p>
-            <p><strong>2. Payment:</strong> 70% deposit is required for material procurement before project commencement.</p>
-            <p><strong>3. Warranty:</strong> We offer a 1-year guarantee on our installations against leaks or structural failure.</p>
-            <p><strong>4. Site Access:</strong> Clients must ensure site safety and access for our technicians.</p>
+            <p><strong>1. Material Quality:</strong> Premium aluminum extrusion and tempered glass.</p>
+            <p><strong>2. Payment:</strong> 70% deposit required for procurement.</p>
+            <p><strong>3. Warranty:</strong> 1-year guarantee on installations.</p>
         </div>
     </div>
 </div>
@@ -369,12 +314,18 @@
 </a>
 
 <script>
+    // FIX: Cleaner Mobile Menu Toggle
     function toggleMobileMenu() {
         const menu = document.getElementById('mobileMenu');
-        const icon = document.getElementById('menuIcon');
-        menu.classList.toggle('hidden');
-        menu.classList.toggle('flex');
-        icon.innerText = menu.classList.contains('hidden') ? 'menu' : 'close';
+        if (menu.classList.contains('hidden')) {
+            menu.classList.remove('hidden');
+            menu.classList.add('flex');
+            document.body.style.overflow = 'hidden'; // Stop scrolling when menu is open
+        } else {
+            menu.classList.add('hidden');
+            menu.classList.remove('flex');
+            document.body.style.overflow = 'auto'; // Allow scrolling again
+        }
     }
 
     function toggleQuoteModal() { document.getElementById('quoteModal').classList.toggle('active'); }
@@ -392,7 +343,6 @@
     window.addEventListener("scroll", reveal);
     reveal();
 
-    // WhatsApp Form Handler
     const waPhone = "2347015506421";
 
     document.getElementById('mainContactForm').onsubmit = function(e) {
