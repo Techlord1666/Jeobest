@@ -47,6 +47,38 @@
         
         /* Mobile Table Fix */
         .table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+        /* Chatbot Custom Styles */
+        #chatbot-window {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            left: 20px;
+            width: 320px;
+            max-width: 85vw;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            z-index: 1000;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+        #chatbot-window.active { display: flex; }
+        .chat-btn-option {
+            background: #f1f5f9;
+            color: #00152f;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-bottom: 8px;
+            text-align: left;
+            width: fit-content;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid #cbd5e1;
+        }
+        .chat-btn-option:hover { background: #ff5e13; color: white; border-color: #ff5e13; }
     </style>
 </head>
 <body class="bg-white text-slate-900 font-sans overflow-x-hidden">
@@ -79,7 +111,7 @@
     <div id="mobileMenu" class="hidden fixed inset-0 bg-white z-[100] flex-col p-8 transition-all duration-300">
         <div class="flex justify-between items-center mb-12">
             <div class="flex items-center gap-2">
-                <img src="IMG_1040.png" class="w-10 h-10 rounded-full" alt="Logo">
+                <img src="IMG_10401.png" class="w-10 h-10 rounded-full" alt="Logo">
                 <div class="text-lg font-black text-primary uppercase">Joe Best Aluminum</div>
             </div>
             <button onclick="toggleMobileMenu()" class="text-primary"><span class="material-symbols-outlined text-4xl">close</span></button>
@@ -115,7 +147,7 @@
                     <div class="h-56 md:h-64 overflow-hidden mb-6 shadow-lg">
                         <img src="service.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Windows">
                     </div>
-                    <h3 class="text-xl md:text-2xl font-bold text-primary mb-3 uppercase">Aluminum Windows</h3>
+                    <h3 class="text-xl md:text-2xl font-bold text-primary mb-3 uppercase text-[1.25rem] md:text-[1.5rem]">Aluminum Windows</h3>
                     <p class="text-slate-600 text-sm leading-relaxed">High-performance sliding and casement windows. Engineered for airtight sealing and durability.</p>
                 </div>
                 <!-- Service 2 -->
@@ -123,7 +155,7 @@
                     <div class="h-56 md:h-64 overflow-hidden mb-6 shadow-lg">
                         <img src="service2.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Doors">
                     </div>
-                    <h3 class="text-xl md:text-2xl font-bold text-primary mb-3 uppercase">Aluminum Doors</h3>
+                    <h3 class="text-xl md:text-2xl font-bold text-primary mb-3 uppercase text-[1.25rem] md:text-[1.5rem]">Aluminum Doors</h3>
                     <p class="text-slate-600 text-sm leading-relaxed">Strong, modern entryways and heavy-duty sliding doors with security locking systems.</p>
                 </div>
                 <!-- Service 3 -->
@@ -131,7 +163,7 @@
                     <div class="h-56 md:h-64 overflow-hidden mb-6 shadow-lg">
                         <img src="serv3.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Roofing">
                     </div>
-                    <h3 class="text-xl md:text-2xl font-bold text-primary mb-3 uppercase">Aluminum Roof</h3>
+                    <h3 class="text-xl md:text-2xl font-bold text-primary mb-3 uppercase text-[1.25rem] md:text-[1.5rem]">Aluminum Roof</h3>
                     <p class="text-slate-600 text-sm leading-relaxed">Long-span and stone-coated roofing solutions built to withstand harsh Nigerian weather.</p>
                 </div>
                 <!-- Service 4 -->
@@ -139,7 +171,7 @@
                     <div class="h-56 md:h-64 overflow-hidden mb-6 shadow-lg">
                         <img src="Aluminum Partition.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Partition">
                     </div>
-                    <h3 class="text-xl md:text-2xl font-bold text-primary mb-3 uppercase">Aluminum Partition</h3>
+                    <h3 class="text-xl md:text-2xl font-bold text-primary mb-3 uppercase text-[1.25rem] md:text-[1.5rem]">Aluminum Partition</h3>
                     <p class="text-slate-600 text-sm leading-relaxed">Professional office partitioning systems for neat and sound-insulated workspaces.</p>
                 </div>
                 <!-- Service 5 -->
@@ -147,7 +179,7 @@
                     <div class="h-56 md:h-64 overflow-hidden mb-6 shadow-lg">
                         <img src="Frameless Glass Toilet.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Glass Toilet">
                     </div>
-                    <h3 class="text-xl md:text-2xl font-bold text-primary mb-3 uppercase">Frameless Glass Toilet</h3>
+                    <h3 class="text-xl md:text-2xl font-bold text-primary mb-3 uppercase text-[1.25rem] md:text-[1.5rem]">Frameless Glass Toilet</h3>
                     <p class="text-slate-600 text-sm leading-relaxed">Elegant tempered glass shower cubicles and dividers for modern luxury bathrooms.</p>
                 </div>
                 <!-- Service 6 -->
@@ -155,7 +187,7 @@
                     <div class="h-56 md:h-64 overflow-hidden mb-6 shadow-lg">
                         <img src="Frameless Railings & Staircase.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Railings">
                     </div>
-                    <h3 class="text-xl md:text-2xl font-bold text-primary mb-3 uppercase">Frameless Railings</h3>
+                    <h3 class="text-xl md:text-2xl font-bold text-primary mb-3 uppercase text-[1.25rem] md:text-[1.5rem]">Frameless Railings</h3>
                     <p class="text-slate-600 text-sm leading-relaxed">Safety glass railings and rainy's staircase finishing for premium residential looks.</p>
                 </div>
             </div>
@@ -169,54 +201,47 @@
                 <h2 class="text-2xl md:text-4xl font-bold text-primary uppercase">Why Our Service is the Best</h2>
                 <div class="w-20 h-1 bg-secondary mx-auto mt-4"></div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 text-left">
                 <div class="bg-white p-6 md:p-8 shadow-sm reveal">
-                    <h4 class="font-bold text-secondary mb-2">1. HIGH-GRADE MATERIALS</h4>
+                    <h4 class="font-bold text-secondary mb-2 uppercase text-sm md:text-base">1. HIGH-GRADE MATERIALS</h4>
                     <p class="text-slate-600 text-sm leading-relaxed">We use 6063-T5 aluminum profiles that never corrode in Lagos humidity.</p>
                 </div>
                 <div class="bg-white p-6 md:p-8 shadow-sm reveal">
-                    <h4 class="font-bold text-secondary mb-2">2. PRECISION ENGINEERING</h4>
+                    <h4 class="font-bold text-secondary mb-2 uppercase text-sm md:text-base">2. PRECISION ENGINEERING</h4>
                     <p class="text-slate-600 text-sm leading-relaxed">Perfectly measured joints to ensure zero leaks during heavy rainfall.</p>
                 </div>
                 <div class="bg-white p-6 md:p-8 shadow-sm reveal">
-                    <h4 class="font-bold text-secondary mb-2">3. EXPERT TECHNICIANS</h4>
+                    <h4 class="font-bold text-secondary mb-2 uppercase text-sm md:text-base">3. EXPERT TECHNICIANS</h4>
                     <p class="text-slate-600 text-sm leading-relaxed">Our team has 15+ years of experience in the Nigerian landscape.</p>
                 </div>
                 <div class="bg-white p-6 md:p-8 shadow-sm reveal">
-                    <h4 class="font-bold text-secondary mb-2">4. PROMPT DELIVERY</h4>
+                    <h4 class="font-bold text-secondary mb-2 uppercase text-sm md:text-base">4. PROMPT DELIVERY</h4>
                     <p class="text-slate-600 text-sm leading-relaxed">Efficient fabrication process to meet your project deadlines.</p>
                 </div>
                 <div class="bg-white p-6 md:p-8 shadow-sm reveal">
-                    <h4 class="font-bold text-secondary mb-2">5. 12-MONTH GUARANTEE</h4>
+                    <h4 class="font-bold text-secondary mb-2 uppercase text-sm md:text-base">5. 12-MONTH GUARANTEE</h4>
                     <p class="text-slate-600 text-sm leading-relaxed">Full warranty on structural leakages and moving parts.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PRICING SECTION (FROM IMAGE) -->
+    <!-- PRICING SECTION -->
     <section class="py-16 md:py-24 bg-white">
         <div class="max-w-4xl mx-auto px-4 md:px-6 reveal">
             <div class="border-2 border-slate-200 p-4 md:p-8 bg-white shadow-lg">
-                <!-- Header of Quote -->
                 <div class="text-center border-b-2 border-slate-100 pb-6 mb-6">
                     <h2 class="text-2xl md:text-3xl font-black text-primary uppercase">Joe Best Aluminum</h2>
                     <p class="text-[10px] md:text-xs text-slate-500 mt-1 uppercase">Specialized on Aluminum such as Aluminum Partition, Cladding, Roofing Etc</p>
                     <p class="text-[9px] md:text-xs text-slate-500">43, Shitta Street, Aluminium Village, Dopemu Agege, Lagos.</p>
                     <p class="text-[9px] md:text-xs font-bold text-primary">Tel: 08166407917, 07015506421</p>
                 </div>
-
-                <div class="flex justify-end mb-4">
-                    <p class="text-xs md:text-sm font-bold">24/3/2026</p>
-                </div>
-                
+                <div class="flex justify-end mb-4"><p class="text-xs md:text-sm font-bold">24/3/2026</p></div>
                 <h3 class="text-sm md:text-lg font-black text-center underline uppercase mb-6 tracking-wider">Quotation for Hinge Door with Glass</h3>
-
-                <!-- The Table -->
                 <div class="table-container">
                     <table class="w-full border-collapse border border-slate-800 text-[10px] md:text-sm">
                         <thead>
-                            <tr class="bg-slate-50">
+                            <tr class="bg-slate-50 uppercase">
                                 <th class="border border-slate-800 p-2 text-left">S/NO</th>
                                 <th class="border border-slate-800 p-2 text-left">DESCRIPTION</th>
                                 <th class="border border-slate-800 p-2">QTY</th>
@@ -225,46 +250,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="border border-slate-800 p-2">1</td>
-                                <td class="border border-slate-800 p-2">2570 x 2900</td>
-                                <td class="border border-slate-800 p-2 text-center">1</td>
-                                <td class="border border-slate-800 p-2">820,000</td>
-                                <td class="border border-slate-800 p-2">820,000.00</td>
-                            </tr>
-                            <tr>
-                                <td class="border border-slate-800 p-2">2</td>
-                                <td class="border border-slate-800 p-2">440 x 2700</td>
-                                <td class="border border-slate-800 p-2 text-center">1</td>
-                                <td class="border border-slate-800 p-2">885,000</td>
-                                <td class="border border-slate-800 p-2">885,000.00</td>
-                            </tr>
-                            <tr>
-                                <td class="border border-slate-800 p-2">3</td>
-                                <td class="border border-slate-800 p-2">4500 x 2850</td>
-                                <td class="border border-slate-800 p-2 text-center">1</td>
-                                <td class="border border-slate-800 p-2">930,000</td>
-                                <td class="border border-slate-800 p-2">930,000.00</td>
-                            </tr>
-                            <tr>
-                                <td class="border-l border-slate-800" colspan="2"></td>
-                                <td class="border border-slate-800 p-2 text-left" colspan="2">Transportation</td>
-                                <td class="border border-slate-800 p-2">150,000.00</td>
-                            </tr>
-                            <tr>
-                                <td class="border-l border-slate-800" colspan="2"></td>
-                                <td class="border border-slate-800 p-2 text-left" colspan="2">Installation</td>
-                                <td class="border border-slate-800 p-2">650,000.00</td>
-                            </tr>
-                            <tr class="font-black bg-slate-50">
-                                <td class="border-l border-b border-slate-800" colspan="2"></td>
-                                <td class="border border-slate-800 p-2 text-left uppercase" colspan="2">Grand Total</td>
-                                <td class="border border-slate-800 p-2">N3,435,000.00</td>
-                            </tr>
+                            <tr><td class="border border-slate-800 p-2">1</td><td class="border border-slate-800 p-2">2570 x 2900</td><td class="border border-slate-800 p-2 text-center">1</td><td class="border border-slate-800 p-2">820,000</td><td class="border border-slate-800 p-2">820,000.00</td></tr>
+                            <tr><td class="border border-slate-800 p-2">2</td><td class="border border-slate-800 p-2">440 x 2700</td><td class="border border-slate-800 p-2 text-center">1</td><td class="border border-slate-800 p-2">885,000</td><td class="border border-slate-800 p-2">885,000.00</td></tr>
+                            <tr><td class="border border-slate-800 p-2">3</td><td class="border border-slate-800 p-2">4500 x 2850</td><td class="border border-slate-800 p-2 text-center">1</td><td class="border border-slate-800 p-2">930,000</td><td class="border border-slate-800 p-2">930,000.00</td></tr>
+                            <tr><td class="border-l border-slate-800" colspan="2"></td><td class="border border-slate-800 p-2 text-left font-bold" colspan="2">Transportation</td><td class="border border-slate-800 p-2">150,000.00</td></tr>
+                            <tr><td class="border-l border-slate-800" colspan="2"></td><td class="border border-slate-800 p-2 text-left font-bold" colspan="2">Installation</td><td class="border border-slate-800 p-2">650,000.00</td></tr>
+                            <tr class="font-black bg-slate-50 uppercase"><td class="border-l border-b border-slate-800" colspan="2"></td><td class="border border-slate-800 p-2 text-left" colspan="2">Grand Total</td><td class="border border-slate-800 p-2">N3,435,000.00</td></tr>
                         </tbody>
                     </table>
                 </div>
-                <p class="text-[9px] text-slate-400 mt-4 italic">*Pricing shown is a sample quotation for specific dimensions.</p>
             </div>
         </div>
     </section>
@@ -272,7 +266,7 @@
     <!-- CALL TO ACTION -->
     <section class="py-16 md:py-24 bg-white">
         <div class="max-w-5xl mx-auto px-6 text-center bg-primary p-8 md:p-16 rounded-lg reveal shadow-2xl">
-            <h2 class="text-2xl md:text-5xl font-bold text-white mb-6 uppercase">Ready to start your project?</h2>
+            <h2 class="text-2xl md:text-4xl font-bold text-white mb-6 uppercase">Ready to start your project?</h2>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <button onclick="toggleQuoteModal()" class="bg-secondary text-white px-10 py-5 font-bold uppercase tracking-widest hover:scale-105 transition-transform">Get a Quote</button>
                 <a href="Galary.html" class="border-2 border-secondary text-secondary px-10 py-5 font-bold uppercase tracking-widest hover:bg-secondary hover:text-white transition-all">View Portfolio</a>
@@ -299,14 +293,13 @@
         </div>
         <div>
             <h4 class="text-lg font-bold mb-6 uppercase tracking-widest">Contact</h4>
-            <div class="text-slate-400 space-y-4 text-sm">
+            <div class="text-slate-400 space-y-4 text-sm font-bold">
                 <p>📍 43 Shrita St, Dopemu Agege, Lagos.</p>
                 <p>📞 08166407917, 07015506421</p>
                 <p>✉️ akinbobola.joseph25@gmail.com</p>
             </div>
         </div>
     </div>
-    
     <div class="border-t border-white/10 pt-10 text-center text-slate-500 text-[10px] px-8 uppercase">
         <p class="mb-8">© 2025 JOE BEST ALUMINUM. 43 SHRITA STREET, LAGOS.</p>
         <a href="https://wa.me/2349032473005" target="_blank" class="inline-block bg-secondary/10 hover:bg-secondary text-secondary hover:text-white border border-secondary px-6 py-2.5 rounded-full font-bold transition-all">
@@ -328,7 +321,7 @@
                 <option>Frameless Glass Toilet/Railings</option>
                 <option>Office Partitioning</option>
             </select>
-            <button type="submit" class="w-full bg-secondary text-white py-4 font-bold uppercase tracking-widest">Submit via WhatsApp</button>
+            <button type="submit" class="w-full bg-secondary text-white py-4 font-bold uppercase tracking-widest shadow-lg">Submit via WhatsApp</button>
         </form>
     </div>
 </div>
@@ -356,6 +349,33 @@
     </div>
 </div>
 
+<!-- CHATBOT INTERFACE -->
+<div id="chatbot-trigger" onclick="toggleChatbot()" class="fixed bottom-6 left-6 z-[1000] bg-primary text-white p-4 rounded-full shadow-2xl cursor-pointer hover:bg-secondary transition-all">
+    <span class="material-symbols-outlined text-3xl">smart_toy</span>
+</div>
+
+<div id="chatbot-window">
+    <div class="bg-primary p-4 text-white flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined">android</span>
+            <span class="font-bold text-sm">Joe Best Assistant</span>
+        </div>
+        <button onclick="toggleChatbot()" class="text-white/80 hover:text-white">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+    </div>
+    <div id="chat-body" class="p-4 h-64 overflow-y-auto bg-slate-50 flex flex-col gap-3">
+        <div class="bg-white p-3 rounded-lg border text-xs text-slate-700 max-w-[85%]">
+            Hello! Welcome to Joe Best Aluminum. How can I help you today?
+        </div>
+        <div id="chat-options" class="flex flex-col">
+            <div class="chat-btn-option" onclick="chatResponse('quote')">I want a price quote</div>
+            <div class="chat-btn-option" onclick="chatResponse('location')">Where is your office?</div>
+            <div class="chat-btn-option" onclick="chatResponse('contact')">Talk to an agent</div>
+        </div>
+    </div>
+</div>
+
 <script>
     function toggleMobileMenu() {
         const m = document.getElementById('mobileMenu');
@@ -365,6 +385,36 @@
     function toggleQuoteModal() { document.getElementById('quoteModal').classList.toggle('active'); }
     function toggleFaqModal() { document.getElementById('faqModal').classList.toggle('active'); }
     function togglePolicyModal() { document.getElementById('policyModal').classList.toggle('active'); }
+
+    // Chatbot Logic
+    function toggleChatbot() {
+        document.getElementById('chatbot-window').classList.toggle('active');
+    }
+
+    function chatResponse(type) {
+        const chatBody = document.getElementById('chat-body');
+        const options = document.getElementById('chat-options');
+        options.style.display = 'none';
+
+        let response = "";
+        let actionBtn = "";
+
+        if(type === 'quote') {
+            response = "Sure! We offer the best rates. Please tell us your project details on WhatsApp to get an instant quote.";
+            actionBtn = `<a href="https://wa.me/2347015506421?text=Hello, I need a price quote for my project." target="_blank" class="bg-secondary text-white px-4 py-2 rounded-full text-xs font-bold text-center mt-2 block">Message WhatsApp</a>`;
+        } else if(type === 'location') {
+            response = "Our office is at 43, Shitta Street, Aluminium Village, Dopemu Agege, Lagos. We are open Mon-Sat.";
+            actionBtn = `<button onclick="location.reload()" class="bg-primary text-white px-4 py-2 rounded-full text-xs mt-2 block">Back to options</button>`;
+        } else if(type === 'contact') {
+            response = "Our agent is ready to help you now. Click below to chat live.";
+            actionBtn = `<a href="https://wa.me/2347015506421?text=Hello, I want to talk to a Joe Best agent." target="_blank" class="bg-secondary text-white px-4 py-2 rounded-full text-xs font-bold text-center mt-2 block">Start Live Chat</a>`;
+        }
+
+        const newMsg = document.createElement('div');
+        newMsg.innerHTML = `<div class="bg-white p-3 rounded-lg border text-xs text-slate-700 max-w-[85%] self-start mt-2">${response} ${actionBtn}</div>`;
+        chatBody.appendChild(newMsg);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
 
     function reveal() {
         var r = document.querySelectorAll(".reveal");
